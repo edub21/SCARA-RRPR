@@ -1,0 +1,12 @@
+# Objetivo
+float32 x_actual
+float32 y_actual
+float32 x_meta
+float32 y_meta
+
+---
+# Resultado
+bool success
+---
+# Feedback
+float32 distancia_restante

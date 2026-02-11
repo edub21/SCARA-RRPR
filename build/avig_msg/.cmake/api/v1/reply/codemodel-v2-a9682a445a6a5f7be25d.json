@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-2b32e50e444e9fb52b55.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "avig_msg__py",
+					"jsonFile" : "directory-avig_msg__py-6520ec00ae49fd966cb0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/edub/ros2_ws/build/avig_msg/avig_msg__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "avig_msg",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_avig_msg_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_avig_msg_egg-0e884f99044283c14f12.json",
+					"name" : "ament_cmake_python_build_avig_msg_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_avig_msg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_avig_msg-c7828637008494adbc96.json",
+					"name" : "ament_cmake_python_copy_avig_msg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg-6ec8fbc03f3d824917af.json",
+					"name" : "avig_msg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__cpp-5dd0705b2f23cbc668ef.json",
+					"name" : "avig_msg__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "avig_msg__py::@b1eff71f9146a3b54132",
+					"jsonFile" : "target-avig_msg__py-e48438ca1d3a3b5f46f2.json",
+					"name" : "avig_msg__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_generator_c-f810bc42c80cdde5d6d8.json",
+					"name" : "avig_msg__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_generator_py-9a4fcca80e0b5f3969a7.json",
+					"name" : "avig_msg__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_c-b0f0c2ac14868cd89bb7.json",
+					"name" : "avig_msg__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_c__pyext-b0042410b9518e585e5a.json",
+					"name" : "avig_msg__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_cpp-db3ef749c2be61cd2416.json",
+					"name" : "avig_msg__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_fastrtps_c-2cbc4275d0a587d89a7f.json",
+					"name" : "avig_msg__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_fastrtps_c__pyext-00cf02fc295ad198d10e.json",
+					"name" : "avig_msg__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_fastrtps_cpp-a58fcf9783b82959e97f.json",
+					"name" : "avig_msg__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_introspection_c-f67163a9a007069f7dfd.json",
+					"name" : "avig_msg__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_introspection_c__pyext-ef1a0259a07b22b569bc.json",
+					"name" : "avig_msg__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg__rosidl_typesupport_introspection_cpp-efabb8bfe2feebadeaf5.json",
+					"name" : "avig_msg__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "avig_msg_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-avig_msg_uninstall-85204bb1ab2fc3806c6e.json",
+					"name" : "avig_msg_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-ef4da57309446f554f3d.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/edub/ros2_ws/build/avig_msg",
+		"source" : "/home/edub/ros2_ws/src/avig_msg"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

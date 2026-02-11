@@ -1,0 +1,302 @@
+[0.000000] (-) TimerEvent: {}
+[0.000193] (avig_msg) JobQueued: {'identifier': 'avig_msg', 'dependencies': OrderedDict()}
+[0.000251] (mi_pkg_python) JobQueued: {'identifier': 'mi_pkg_python', 'dependencies': OrderedDict([('avig_msg', '/home/edub/ros2_ws/install/avig_msg')])}
+[0.000267] (avig_msg) JobStarted: {'identifier': 'avig_msg'}
+[0.011618] (avig_msg) JobProgress: {'identifier': 'avig_msg', 'progress': 'cmake'}
+[0.013403] (avig_msg) JobProgress: {'identifier': 'avig_msg', 'progress': 'build'}
+[0.013453] (avig_msg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/edub/ros2_ws/build/avig_msg', '--', '-j6', '-l6'], 'cwd': '/home/edub/ros2_ws/build/avig_msg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'edub'), ('LC_TIME', 'es_CO.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/edub/ros2_ws/install/avig_msg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/edub'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_CO.UTF-8'), ('SYSTEMD_EXEC_PID', '7970'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/edub/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'edub'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'edub'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ROS2robot:@/tmp/.ICE-unix/1470,unix/ROS2robot:/tmp/.ICE-unix/1470'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_CO.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/0c094bcb_69fb_449f_8723_970d3fc78ce4'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_CO.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.O4ZBK3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.154'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/edub/ros2_ws/install/mi_pkg_python:/home/edub/ros2_ws/install/avig_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_CO.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_CO.UTF-8'), ('LC_IDENTIFICATION', 'es_CO.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/edub/ros2_ws/build/avig_msg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_CO.UTF-8'), ('LC_PAPER', 'es_CO.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/edub/ros2_ws/install/avig_msg:/home/edub/ros2_ws/install/mi_pkg_python:/opt/ros/humble')]), 'shell': False}
+[0.072972] (avig_msg) StdoutLine: {'line': b'[  1%] Built target avig_msg__cpp\n'}
+[0.080337] (avig_msg) StdoutLine: {'line': b'[ 12%] Built target avig_msg__rosidl_generator_c\n'}
+[0.098920] (-) TimerEvent: {}
+[0.107229] (avig_msg) StdoutLine: {'line': b'[ 23%] Built target avig_msg__rosidl_typesupport_introspection_cpp\n'}
+[0.107446] (avig_msg) StdoutLine: {'line': b'[ 23%] Built target ament_cmake_python_copy_avig_msg\n'}
+[0.107598] (avig_msg) StdoutLine: {'line': b'[ 34%] Built target avig_msg__rosidl_typesupport_cpp\n'}
+[0.108926] (avig_msg) StdoutLine: {'line': b'[ 45%] Built target avig_msg__rosidl_typesupport_fastrtps_cpp\n'}
+[0.118417] (avig_msg) StdoutLine: {'line': b'[ 56%] Built target avig_msg__rosidl_typesupport_introspection_c\n'}
+[0.119161] (avig_msg) StdoutLine: {'line': b'[ 67%] Built target avig_msg__rosidl_typesupport_fastrtps_c\n'}
+[0.136451] (avig_msg) StdoutLine: {'line': b'[ 78%] Built target avig_msg__rosidl_typesupport_c\n'}
+[0.163108] (avig_msg) StdoutLine: {'line': b'[ 78%] Built target avig_msg\n'}
+[0.184189] (avig_msg) StdoutLine: {'line': b'[ 80%] Built target avig_msg__py\n'}
+[0.198986] (-) TimerEvent: {}
+[0.209194] (avig_msg) StdoutLine: {'line': b'[ 89%] Built target avig_msg__rosidl_generator_py\n'}
+[0.234620] (avig_msg) StdoutLine: {'line': b'[ 92%] Built target avig_msg__rosidl_typesupport_introspection_c__pyext\n'}
+[0.240864] (avig_msg) StdoutLine: {'line': b'[ 96%] Built target avig_msg__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.241505] (avig_msg) StdoutLine: {'line': b'[100%] Built target avig_msg__rosidl_typesupport_c__pyext\n'}
+[0.303676] (-) TimerEvent: {}
+[0.367436] (avig_msg) StdoutLine: {'line': b'running egg_info\n'}
+[0.368279] (avig_msg) StdoutLine: {'line': b'writing avig_msg.egg-info/PKG-INFO\n'}
+[0.368553] (avig_msg) StdoutLine: {'line': b'writing dependency_links to avig_msg.egg-info/dependency_links.txt\n'}
+[0.368689] (avig_msg) StdoutLine: {'line': b'writing top-level names to avig_msg.egg-info/top_level.txt\n'}
+[0.372262] (avig_msg) StdoutLine: {'line': b"reading manifest file 'avig_msg.egg-info/SOURCES.txt'\n"}
+[0.372861] (avig_msg) StdoutLine: {'line': b"writing manifest file 'avig_msg.egg-info/SOURCES.txt'\n"}
+[0.398181] (avig_msg) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_avig_msg_egg\n'}
+[0.404385] (-) TimerEvent: {}
+[0.408423] (avig_msg) CommandEnded: {'returncode': 0}
+[0.411212] (avig_msg) JobProgress: {'identifier': 'avig_msg', 'progress': 'install'}
+[0.419176] (avig_msg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/edub/ros2_ws/build/avig_msg'], 'cwd': '/home/edub/ros2_ws/build/avig_msg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_US:'), ('USER', 'edub'), ('LC_TIME', 'es_CO.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/edub/ros2_ws/install/avig_msg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/edub'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'es_CO.UTF-8'), ('SYSTEMD_EXEC_PID', '7970'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/edub/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'edub'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'edub'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ROS2robot:@/tmp/.ICE-unix/1470,unix/ROS2robot:/tmp/.ICE-unix/1470'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'es_CO.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/0c094bcb_69fb_449f_8723_970d3fc78ce4'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'es_CO.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.O4ZBK3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.154'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/edub/ros2_ws/install/mi_pkg_python:/home/edub/ros2_ws/install/avig_msg:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'es_CO.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'es_CO.UTF-8'), ('LC_IDENTIFICATION', 'es_CO.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/edub/ros2_ws/build/avig_msg'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'es_CO.UTF-8'), ('LC_PAPER', 'es_CO.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/edub/ros2_ws/install/avig_msg:/home/edub/ros2_ws/install/mi_pkg_python:/opt/ros/humble')]), 'shell': False}
+[0.427124] (avig_msg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.427317] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/rosidl_interfaces/avig_msg\n'}
+[0.427374] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg\n'}
+[0.427424] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action\n'}
+[0.427603] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail\n'}
+[0.428055] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__functions.h\n'}
+[0.428125] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__functions.c\n'}
+[0.428200] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.h\n'}
+[0.428254] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__struct.h\n'}
+[0.428296] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/mover_a.h\n'}
+[0.428337] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv\n'}
+[0.428472] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail\n'}
+[0.428927] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__functions.h\n'}
+[0.429087] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__struct.h\n'}
+[0.429145] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__functions.c\n'}
+[0.429230] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.h\n'}
+[0.429284] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/heuristica.h\n'}
+[0.429329] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg\n'}
+[0.429418] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail\n'}
+[0.429860] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__functions.c\n'}
+[0.429948] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__struct.h\n'}
+[0.430070] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__functions.c\n'}
+[0.430165] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__struct.h\n'}
+[0.430214] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__functions.h\n'}
+[0.430261] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.h\n'}
+[0.430305] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.h\n'}
+[0.430346] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__functions.h\n'}
+[0.430387] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel.h\n'}
+[0.430433] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel_array.h\n'}
+[0.430481] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.430522] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/library_path.sh\n'}
+[0.430564] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/library_path.dsv\n'}
+[0.431191] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_generator_c.so\n'}
+[0.431345] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg\n'}
+[0.431613] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action\n'}
+[0.431925] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail\n'}
+[0.432194] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_fastrtps_c.h\n'}
+[0.432276] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv\n'}
+[0.432500] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail\n'}
+[0.432859] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_fastrtps_c.h\n'}
+[0.432924] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg\n'}
+[0.433251] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail\n'}
+[0.433442] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_fastrtps_c.h\n'}
+[0.433509] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_fastrtps_c.h\n'}
+[0.433598] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.434676] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_fastrtps_c.so\n'}
+[0.434816] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg\n'}
+[0.435133] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action\n'}
+[0.435283] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail\n'}
+[0.435619] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_introspection_c.h\n'}
+[0.435684] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.c\n'}
+[0.435752] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv\n'}
+[0.435839] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail\n'}
+[0.436105] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_introspection_c.h\n'}
+[0.436173] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.c\n'}
+[0.436252] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg\n'}
+[0.436431] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.436497] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail\n'}
+[0.436621] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.c\n'}
+[0.436690] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_introspection_c.h\n'}
+[0.436769] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.c\n'}
+[0.436822] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_introspection_c.h\n'}
+[0.438186] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_introspection_c.so\n'}
+[0.438938] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_c.so\n'}
+[0.439096] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg\n'}
+[0.439316] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action\n'}
+[0.439682] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/mover_a.hpp\n'}
+[0.439769] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail\n'}
+[0.440116] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__struct.hpp\n'}
+[0.440190] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__traits.hpp\n'}
+[0.440237] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.hpp\n'}
+[0.440314] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__builder.hpp\n'}
+[0.440364] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv\n'}
+[0.440510] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail\n'}
+[0.442637] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__traits.hpp\n'}
+[0.442833] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__struct.hpp\n'}
+[0.443668] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__builder.hpp\n'}
+[0.443813] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.hpp\n'}
+[0.443910] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/heuristica.hpp\n'}
+[0.443967] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg\n'}
+[0.444020] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel_array.hpp\n'}
+[0.444086] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.444132] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail\n'}
+[0.444178] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.hpp\n'}
+[0.444223] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__traits.hpp\n'}
+[0.444270] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__builder.hpp\n'}
+[0.444320] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__struct.hpp\n'}
+[0.444365] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__builder.hpp\n'}
+[0.444408] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__traits.hpp\n'}
+[0.444537] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__struct.hpp\n'}
+[0.444590] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.hpp\n'}
+[0.444633] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel.hpp\n'}
+[0.444721] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg\n'}
+[0.444840] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action\n'}
+[0.445021] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail\n'}
+[0.445113] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/dds_fastrtps\n'}
+[0.445189] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.445249] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv\n'}
+[0.445295] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail\n'}
+[0.445350] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/dds_fastrtps\n'}
+[0.445485] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.445540] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg\n'}
+[0.445773] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.445943] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail\n'}
+[0.446159] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.446219] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/dds_fastrtps\n'}
+[0.446491] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.447549] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.447741] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg\n'}
+[0.448059] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action\n'}
+[0.448311] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail\n'}
+[0.448600] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.448661] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.cpp\n'}
+[0.448739] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv\n'}
+[0.448975] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail\n'}
+[0.449267] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.449331] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.cpp\n'}
+[0.449374] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg\n'}
+[0.449453] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail\n'}
+[0.449728] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.cpp\n'}
+[0.449784] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.449832] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.cpp\n'}
+[0.449902] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.450698] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_introspection_cpp.so\n'}
+[0.452792] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_cpp.so\n'}
+[0.453001] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/pythonpath.sh\n'}
+[0.453059] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/pythonpath.dsv\n'}
+[0.453103] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info\n'}
+[0.453155] (avig_msg) StdoutLine: {'line': b'-- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[0.453197] (avig_msg) StdoutLine: {'line': b'-- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[0.453245] (avig_msg) StdoutLine: {'line': b'-- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[0.453288] (avig_msg) StdoutLine: {'line': b'-- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[0.453340] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg\n'}
+[0.453384] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action\n'}
+[0.453427] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/_mover_a.py\n'}
+[0.453473] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/_mover_a_s.c\n'}
+[0.453517] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/__init__.py\n'}
+[0.453563] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.453607] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv\n'}
+[0.453651] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/_heuristica_s.c\n'}
+[0.453695] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/_heuristica.py\n'}
+[0.453740] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/__init__.py\n'}
+[0.453783] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.453843] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.453890] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/_avig_msg_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.453937] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/_avig_msg_s.ep.rosidl_typesupport_c.c\n'}
+[0.453986] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/libavig_msg__rosidl_generator_py.so\n'}
+[0.454059] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg\n'}
+[0.454113] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel_array.py\n'}
+[0.454157] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel_array_s.c\n'}
+[0.454205] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel.py\n'}
+[0.454248] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/__init__.py\n'}
+[0.454293] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel_s.c\n'}
+[0.454338] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/__init__.py\n'}
+[0.454384] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/_avig_msg_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.485101] (avig_msg) StdoutLine: {'line': b"Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg'...\n"}
+[0.485293] (avig_msg) StdoutLine: {'line': b"Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action'...\n"}
+[0.485365] (avig_msg) StdoutLine: {'line': b"Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg'...\n"}
+[0.485421] (avig_msg) StdoutLine: {'line': b"Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv'...\n"}
+[0.490506] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.491675] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.492581] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.493850] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_generator_py.so\n'}
+[0.493951] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixel.idl\n'}
+[0.494075] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixelArray.idl\n'}
+[0.494134] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica.idl\n'}
+[0.494269] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/action/MoverA.idl\n'}
+[0.494370] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixel.msg\n'}
+[0.494494] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixelArray.msg\n'}
+[0.494548] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica.srv\n'}
+[0.494605] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica_Request.msg\n'}
+[0.494658] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica_Response.msg\n'}
+[0.494748] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/action/MoverA.action\n'}
+[0.494803] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/package_run_dependencies/avig_msg\n'}
+[0.494858] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/parent_prefix_path/avig_msg\n'}
+[0.494955] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/ament_prefix_path.sh\n'}
+[0.495055] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/ament_prefix_path.dsv\n'}
+[0.495116] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/path.sh\n'}
+[0.495216] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/path.dsv\n'}
+[0.495282] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.bash\n'}
+[0.495335] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.sh\n'}
+[0.495389] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.zsh\n'}
+[0.495492] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.dsv\n'}
+[0.495544] (avig_msg) StdoutLine: {'line': b'-- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/package.dsv\n'}
+[0.496028] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/packages/avig_msg\n'}
+[0.496833] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_cExport.cmake\n'}
+[0.496993] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.497725] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.497855] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.498656] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.498782] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.499472] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cExport.cmake\n'}
+[0.499596] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.500216] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_cppExport.cmake\n'}
+[0.501133] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.501207] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.501738] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.501887] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.502214] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cppExport.cmake\n'}
+[0.502370] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.502646] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_pyExport.cmake\n'}
+[0.502755] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.502809] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/rosidl_cmake-extras.cmake\n'}
+[0.502897] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.502948] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.503054] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.503111] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.503330] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.503413] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.503456] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msgConfig.cmake\n'}
+[0.503500] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msgConfig-version.cmake\n'}
+[0.503555] (avig_msg) StdoutLine: {'line': b'-- Up-to-date: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/package.xml\n'}
+[0.505266] (-) TimerEvent: {}
+[0.506346] (avig_msg) CommandEnded: {'returncode': 0}
+[0.535084] (avig_msg) JobEnded: {'identifier': 'avig_msg', 'rc': 0}
+[0.535930] (mi_pkg_python) JobStarted: {'identifier': 'mi_pkg_python'}
+[0.608622] (-) TimerEvent: {}
+[0.709305] (-) TimerEvent: {}
+[0.813383] (-) TimerEvent: {}
+[0.913850] (-) TimerEvent: {}
+[1.015108] (-) TimerEvent: {}
+[1.115500] (-) TimerEvent: {}
+[1.163933] (mi_pkg_python) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/mi_pkg_python', 'build', '--build-base', '/home/edub/ros2_ws/build/mi_pkg_python/build', 'install', '--record', '/home/edub/ros2_ws/build/mi_pkg_python/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/edub/ros2_ws/src/mi_pkg_python', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'edub', 'LC_TIME': 'es_CO.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/edub/ros2_ws/install/avig_msg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/edub', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'es_CO.UTF-8', 'SYSTEMD_EXEC_PID': '7970', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/edub/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'edub', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'edub', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ROS2robot:@/tmp/.ICE-unix/1470,unix/ROS2robot:/tmp/.ICE-unix/1470', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'es_CO.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/0c094bcb_69fb_449f_8723_970d3fc78ce4', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'es_CO.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.O4ZBK3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.154', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/edub/ros2_ws/install/mi_pkg_python:/home/edub/ros2_ws/install/avig_msg:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_CO.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_CO.UTF-8', 'LC_IDENTIFICATION': 'es_CO.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/edub/ros2_ws/build/mi_pkg_python', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/edub/ros2_ws/build/mi_pkg_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_CO.UTF-8', 'LC_PAPER': 'es_CO.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/edub/ros2_ws/install/avig_msg'}, 'shell': False}
+[1.233927] (-) TimerEvent: {}
+[1.337961] (-) TimerEvent: {}
+[1.378756] (mi_pkg_python) StdoutLine: {'line': b'running egg_info\n'}
+[1.379447] (mi_pkg_python) StdoutLine: {'line': b'writing ../../build/mi_pkg_python/mi_pkg_python.egg-info/PKG-INFO\n'}
+[1.379791] (mi_pkg_python) StdoutLine: {'line': b'writing dependency_links to ../../build/mi_pkg_python/mi_pkg_python.egg-info/dependency_links.txt\n'}
+[1.380078] (mi_pkg_python) StdoutLine: {'line': b'writing entry points to ../../build/mi_pkg_python/mi_pkg_python.egg-info/entry_points.txt\n'}
+[1.380220] (mi_pkg_python) StdoutLine: {'line': b'writing requirements to ../../build/mi_pkg_python/mi_pkg_python.egg-info/requires.txt\n'}
+[1.380437] (mi_pkg_python) StdoutLine: {'line': b'writing top-level names to ../../build/mi_pkg_python/mi_pkg_python.egg-info/top_level.txt\n'}
+[1.382616] (mi_pkg_python) StdoutLine: {'line': b"reading manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'\n"}
+[1.390861] (mi_pkg_python) StdoutLine: {'line': b"writing manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'\n"}
+[1.391056] (mi_pkg_python) StdoutLine: {'line': b'running build\n'}
+[1.391122] (mi_pkg_python) StdoutLine: {'line': b'running build_py\n'}
+[1.392808] (mi_pkg_python) StdoutLine: {'line': b'running install\n'}
+[1.393432] (mi_pkg_python) StdoutLine: {'line': b'running install_lib\n'}
+[1.397378] (mi_pkg_python) StdoutLine: {'line': b'running install_data\n'}
+[1.397588] (mi_pkg_python) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.399239] (mi_pkg_python) StdoutLine: {'line': b"removing '/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[1.401073] (mi_pkg_python) StdoutLine: {'line': b'Copying ../../build/mi_pkg_python/mi_pkg_python.egg-info to /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python-0.0.0-py3.10.egg-info\n'}
+[1.403174] (mi_pkg_python) StdoutLine: {'line': b'running install_scripts\n'}
+[1.421222] (mi_pkg_python) StdoutLine: {'line': b'Installing 0_tf2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.421411] (mi_pkg_python) StdoutLine: {'line': b'Installing 0_urdf_pub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.421466] (mi_pkg_python) StdoutLine: {'line': b'Installing 0_urdf_sub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.421511] (mi_pkg_python) StdoutLine: {'line': b'Installing action_cliente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.421556] (mi_pkg_python) StdoutLine: {'line': b'Installing action_servidor script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.421690] (mi_pkg_python) StdoutLine: {'line': b'Installing apriltag_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.421786] (mi_pkg_python) StdoutLine: {'line': b'Installing apriltag_2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.421854] (mi_pkg_python) StdoutLine: {'line': b'Installing cliente_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422083] (mi_pkg_python) StdoutLine: {'line': b'Installing p_fsm script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422222] (mi_pkg_python) StdoutLine: {'line': b'Installing p_orientacion2juntas script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422314] (mi_pkg_python) StdoutLine: {'line': b'Installing p_prueba script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422483] (mi_pkg_python) StdoutLine: {'line': b'Installing p_puente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422551] (mi_pkg_python) StdoutLine: {'line': b'Installing p_set script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422612] (mi_pkg_python) StdoutLine: {'line': b'Installing p_vision2riz script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422669] (mi_pkg_python) StdoutLine: {'line': b'Installing publicador1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422784] (mi_pkg_python) StdoutLine: {'line': b'Installing puente_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422842] (mi_pkg_python) StdoutLine: {'line': b'Installing servidor_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.422889] (mi_pkg_python) StdoutLine: {'line': b'Installing suscriptor1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.423081] (mi_pkg_python) StdoutLine: {'line': b'Installing urdf_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[1.423909] (mi_pkg_python) StdoutLine: {'line': b"writing list of installed files to '/home/edub/ros2_ws/build/mi_pkg_python/install.log'\n"}
+[1.438134] (-) TimerEvent: {}
+[1.447168] (mi_pkg_python) CommandEnded: {'returncode': 0}
+[1.456391] (mi_pkg_python) JobEnded: {'identifier': 'mi_pkg_python', 'rc': 0}
+[1.457177] (-) EventReactorShutdown: {}

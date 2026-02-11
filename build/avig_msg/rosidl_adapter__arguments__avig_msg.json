@@ -1,0 +1,10 @@
+{
+  "package_name": "avig_msg",
+  "non_idl_tuples": [
+    "/home/edub/ros2_ws/src/avig_msg:msg/AprilTagPixel.msg",
+    "/home/edub/ros2_ws/src/avig_msg:msg/AprilTagPixelArray.msg",
+    "/home/edub/ros2_ws/src/avig_msg:srv/Heuristica.srv",
+    "/home/edub/ros2_ws/src/avig_msg:action/MoverA.action",
+    "/home/edub/ros2_ws/src/avig_msg:msg/ObjDetect.msg"
+  ]
+}

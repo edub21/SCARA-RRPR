@@ -1,0 +1,12 @@
+action/MoverA.action
+action/MoverA.idl
+msg/AprilTagPixel.idl
+msg/AprilTagPixel.msg
+msg/AprilTagPixelArray.idl
+msg/AprilTagPixelArray.msg
+msg/ObjDetect.idl
+msg/ObjDetect.msg
+srv/Heuristica.idl
+srv/Heuristica.srv
+srv/Heuristica_Request.msg
+srv/Heuristica_Response.msg

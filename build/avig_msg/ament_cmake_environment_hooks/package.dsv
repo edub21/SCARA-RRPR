@@ -1,0 +1,4 @@
+source;share/avig_msg/local_setup.bash
+source;share/avig_msg/local_setup.dsv
+source;share/avig_msg/local_setup.sh
+source;share/avig_msg/local_setup.zsh

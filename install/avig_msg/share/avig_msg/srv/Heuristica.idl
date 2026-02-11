@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from avig_msg/srv/Heuristica.srv
+// generated code does not contain a copyright notice
+
+#include "avig_msg/msg/AprilTagPixel.idl"
+#include "avig_msg/msg/AprilTagPixelArray.idl"
+
+module avig_msg {
+  module srv {
+    struct Heuristica_Request {
+      avig_msg::msg::AprilTagPixelArray tags_in;
+    };
+    struct Heuristica_Response {
+      avig_msg::msg::AprilTagPixel tag_out;
+    };
+  };
+};

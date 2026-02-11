@@ -1,0 +1,13 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from avig_msg/msg/AprilTagPixelArray.msg
+// generated code does not contain a copyright notice
+
+#include "avig_msg/msg/AprilTagPixel.idl"
+
+module avig_msg {
+  module msg {
+    struct AprilTagPixelArray {
+      sequence<avig_msg::msg::AprilTagPixel> tags;
+    };
+  };
+};

@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from avig_msg/action/MoverA.action
+// generated code does not contain a copyright notice
+
+
+module avig_msg {
+  module action {
+    @verbatim (language="comment", text=
+      "Objetivo")
+    struct MoverA_Goal {
+      float x_actual;
+
+      float y_actual;
+
+      float x_meta;
+
+      float y_meta;
+    };
+    @verbatim (language="comment", text=
+      "Resultado")
+    struct MoverA_Result {
+      boolean success;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct MoverA_Feedback {
+      float distancia_restante;
+    };
+  };
+};

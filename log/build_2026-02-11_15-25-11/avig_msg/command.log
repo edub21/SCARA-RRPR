@@ -1,0 +1,2 @@
+Invoking command in '/home/edub/ros2_ws/build/avig_msg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/edub/ros2_ws/install/mi_pkg_python:/opt/ros/humble /usr/bin/cmake /home/edub/ros2_ws/src/avig_msg -DCMAKE_INSTALL_PREFIX=/home/edub/ros2_ws/install/avig_msg
+Invoked command in '/home/edub/ros2_ws/build/avig_msg' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/edub/ros2_ws/install/mi_pkg_python:/opt/ros/humble /usr/bin/cmake /home/edub/ros2_ws/src/avig_msg -DCMAKE_INSTALL_PREFIX=/home/edub/ros2_ws/install/avig_msg

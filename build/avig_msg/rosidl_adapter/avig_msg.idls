@@ -1,0 +1,5 @@
+/home/edub/ros2_ws/build/avig_msg/rosidl_adapter/avig_msg:msg/AprilTagPixel.idl
+/home/edub/ros2_ws/build/avig_msg/rosidl_adapter/avig_msg:msg/AprilTagPixelArray.idl
+/home/edub/ros2_ws/build/avig_msg/rosidl_adapter/avig_msg:srv/Heuristica.idl
+/home/edub/ros2_ws/build/avig_msg/rosidl_adapter/avig_msg:action/MoverA.idl
+/home/edub/ros2_ws/build/avig_msg/rosidl_adapter/avig_msg:msg/ObjDetect.idl

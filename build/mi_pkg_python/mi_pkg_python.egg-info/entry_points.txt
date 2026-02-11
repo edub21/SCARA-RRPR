@@ -1,0 +1,22 @@
+[console_scripts]
+0_tf2 = mi_pkg_python.0_tf2:main
+0_urdf_pub = mi_pkg_python.0_urdf_pub:main
+0_urdf_sub = mi_pkg_python.0_urdf_sub:main
+action_cliente = acciones.action_client:main
+action_servidor = acciones.action_server:main
+apriltag_1 = mi_pkg_python.apriltag_1:main
+apriltag_2 = mi_pkg_python.apriltag_2:main
+cliente_1 = servicios.srv_cliente:main
+p_fsm = proyecto.fsm:main
+p_mega = proyecto.mega:main
+p_orientacion2juntas = proyecto.orientacion_juntas:main
+p_prueba = proyecto.prueba_publicador:main
+p_puente = proyecto.puente_mqtt_ros2:main
+p_set = proyecto.set:main
+p_vision2riz = proyecto.vision_to_rviz:main
+publicador1 = mi_pkg_python.publicador:main
+puente_mqtt = mi_pkg_python.puente_mqtt:main
+servidor_1 = servicios.srv_servidor:main
+suscriptor1 = mi_pkg_python.suscriptor:main
+urdf_mqtt = mi_pkg_python.urdf_mqtt:main
+

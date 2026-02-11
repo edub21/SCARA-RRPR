@@ -1,0 +1,351 @@
+[0.015s] Invoking command in '/home/edub/ros2_ws/build/avig_msg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/edub/ros2_ws/src/avig_msg -DCMAKE_INSTALL_PREFIX=/home/edub/ros2_ws/install/avig_msg
+[0.186s] -- The C compiler identification is GNU 11.4.0
+[0.320s] -- The CXX compiler identification is GNU 11.4.0
+[0.334s] -- Detecting C compiler ABI info
+[0.412s] -- Detecting C compiler ABI info - done
+[0.418s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.419s] -- Detecting C compile features
+[0.420s] -- Detecting C compile features - done
+[0.425s] -- Detecting CXX compiler ABI info
+[0.508s] -- Detecting CXX compiler ABI info - done
+[0.514s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.514s] -- Detecting CXX compile features
+[0.514s] -- Detecting CXX compile features - done
+[0.522s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.677s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.802s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.823s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.833s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.898s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.952s] -- Found builtin_interfaces: 1.2.2 (/opt/ros/humble/share/builtin_interfaces/cmake)
+[1.296s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.493s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.731s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.753s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.755s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.784s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.785s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.785s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.785s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.804s] -- Found PythonExtra: .so  
+[1.843s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.875s] -- Added test 'lint_cmake' to check CMake code style
+[1.878s] -- Added test 'xmllint' to check XML markup files
+[1.883s] -- Configuring done
+[1.917s] -- Generating done
+[1.928s] -- Build files have been written to: /home/edub/ros2_ws/build/avig_msg
+[1.935s] Invoked command in '/home/edub/ros2_ws/build/avig_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/edub/ros2_ws/src/avig_msg -DCMAKE_INSTALL_PREFIX=/home/edub/ros2_ws/install/avig_msg
+[1.935s] Invoking command in '/home/edub/ros2_ws/build/avig_msg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edub/ros2_ws/build/avig_msg -- -j6 -l6
+[1.972s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.982s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.996s] [  3%] Built target ament_cmake_python_copy_avig_msg
+[2.240s] running egg_info
+[2.241s] creating avig_msg.egg-info
+[2.241s] writing avig_msg.egg-info/PKG-INFO
+[2.243s] writing dependency_links to avig_msg.egg-info/dependency_links.txt
+[2.243s] writing top-level names to avig_msg.egg-info/top_level.txt
+[2.243s] writing manifest file 'avig_msg.egg-info/SOURCES.txt'
+[2.248s] reading manifest file 'avig_msg.egg-info/SOURCES.txt'
+[2.248s] writing manifest file 'avig_msg.egg-info/SOURCES.txt'
+[2.272s] [  3%] Built target ament_cmake_python_build_avig_msg_egg
+[2.648s] [  5%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_c.dir/rosidl_generator_c/avig_msg/msg/detail/april_tag_pixel__functions.c.o[0m
+[2.654s] [  7%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_c.dir/rosidl_generator_c/avig_msg/msg/detail/april_tag_pixel_array__functions.c.o[0m
+[2.655s] [  9%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_c.dir/rosidl_generator_c/avig_msg/srv/detail/heuristica__functions.c.o[0m
+[2.656s] [ 10%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_c.dir/rosidl_generator_c/avig_msg/action/detail/mover_a__functions.c.o[0m
+[2.658s] [ 10%] Built target avig_msg__cpp
+[2.670s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.673s] [ 14%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.755s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[2.856s] [ 18%] [32m[1mLinking C shared library libavig_msg__rosidl_generator_c.so[0m
+[2.906s] [ 18%] Built target avig_msg__rosidl_generator_c
+[2.928s] [ 20%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.928s] [ 21%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.928s] [ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[3.327s] [ 25%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/avig_msg/msg/april_tag_pixel__type_support.cpp.o[0m
+[3.586s] [ 27%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/avig_msg/msg/april_tag_pixel__type_support.cpp.o[0m
+[3.629s] [ 29%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/avig_msg/msg/april_tag_pixel_array__type_support.cpp.o[0m
+[3.685s] [ 30%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/avig_msg/srv/heuristica__type_support.cpp.o[0m
+[3.694s] [ 32%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/avig_msg/msg/detail/april_tag_pixel__type_support.cpp.o[0m
+[3.709s] [ 34%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/avig_msg/msg/detail/dds_fastrtps/april_tag_pixel__type_support.cpp.o[0m
+[3.776s] [ 36%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_c.dir/rosidl_typesupport_c/avig_msg/action/mover_a__type_support.cpp.o[0m
+[3.903s] [ 38%] [32m[1mLinking CXX shared library libavig_msg__rosidl_typesupport_c.so[0m
+[3.941s] [ 40%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/avig_msg/msg/detail/april_tag_pixel__type_support.c.o[0m
+[3.963s] [ 41%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/avig_msg/msg/april_tag_pixel_array__type_support.cpp.o[0m
+[4.007s] [ 41%] Built target avig_msg__rosidl_typesupport_c
+[4.042s] [ 43%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/avig_msg/msg/detail/april_tag_pixel_array__type_support.c.o[0m
+[4.054s] [ 45%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/avig_msg/srv/detail/heuristica__type_support.c.o[0m
+[4.180s] [ 47%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/avig_msg/action/detail/mover_a__type_support.c.o[0m
+[4.194s] [ 49%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/avig_msg/msg/detail/april_tag_pixel_array__type_support.cpp.o[0m
+[4.209s] [ 50%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/avig_msg/msg/detail/april_tag_pixel__type_support_c.cpp.o[0m
+[4.577s] [ 52%] [32m[1mLinking C shared library libavig_msg__rosidl_typesupport_introspection_c.so[0m
+[4.899s] [ 54%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/avig_msg/srv/heuristica__type_support.cpp.o[0m
+[4.910s] [ 54%] Built target avig_msg__rosidl_typesupport_introspection_c
+[4.970s] [ 56%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/avig_msg/srv/detail/heuristica__type_support.cpp.o[0m
+[5.225s] [ 58%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/avig_msg/msg/detail/dds_fastrtps/april_tag_pixel_array__type_support.cpp.o[0m
+[5.363s] [ 60%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/avig_msg/action/detail/mover_a__type_support.cpp.o[0m
+[5.482s] [ 61%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/avig_msg/msg/detail/april_tag_pixel_array__type_support_c.cpp.o[0m
+[5.746s] [ 63%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/avig_msg/srv/detail/heuristica__type_support_c.cpp.o[0m
+[5.777s] [ 65%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/avig_msg/action/mover_a__type_support.cpp.o[0m
+[6.107s] [ 67%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/avig_msg/action/detail/mover_a__type_support_c.cpp.o[0m
+[6.377s] [ 69%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/avig_msg/srv/detail/dds_fastrtps/heuristica__type_support.cpp.o[0m
+[6.431s] [ 70%] [32mBuilding CXX object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/avig_msg/action/detail/dds_fastrtps/mover_a__type_support.cpp.o[0m
+[6.808s] [ 72%] [32m[1mLinking CXX shared library libavig_msg__rosidl_typesupport_introspection_cpp.so[0m
+[6.918s] [ 74%] [32m[1mLinking CXX shared library libavig_msg__rosidl_typesupport_cpp.so[0m
+[6.970s] [ 74%] Built target avig_msg__rosidl_typesupport_introspection_cpp
+[6.988s] [ 74%] Built target avig_msg__rosidl_typesupport_cpp
+[7.051s] [ 76%] [32m[1mLinking CXX shared library libavig_msg__rosidl_typesupport_fastrtps_c.so[0m
+[7.167s] [ 76%] Built target avig_msg__rosidl_typesupport_fastrtps_c
+[7.358s] [ 78%] [32m[1mLinking CXX shared library libavig_msg__rosidl_typesupport_fastrtps_cpp.so[0m
+[7.446s] [ 78%] Built target avig_msg__rosidl_typesupport_fastrtps_cpp
+[7.469s] [ 78%] Built target avig_msg
+[7.488s] [ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[8.541s] [ 80%] Built target avig_msg__py
+[8.563s] [ 81%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_py.dir/rosidl_generator_py/avig_msg/msg/_april_tag_pixel_s.c.o[0m
+[8.563s] [ 85%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_py.dir/rosidl_generator_py/avig_msg/msg/_april_tag_pixel_array_s.c.o[0m
+[8.563s] [ 85%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_py.dir/rosidl_generator_py/avig_msg/srv/_heuristica_s.c.o[0m
+[8.567s] [ 87%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_generator_py.dir/rosidl_generator_py/avig_msg/action/_mover_a_s.c.o[0m
+[8.787s] [ 89%] [32m[1mLinking C shared library rosidl_generator_py/avig_msg/libavig_msg__rosidl_generator_py.so[0m
+[8.833s] [ 89%] Built target avig_msg__rosidl_generator_py
+[8.853s] [ 90%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/avig_msg/_avig_msg_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[8.853s] [ 94%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/avig_msg/_avig_msg_s.ep.rosidl_typesupport_c.c.o[0m
+[8.853s] [ 94%] [32mBuilding C object CMakeFiles/avig_msg__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/avig_msg/_avig_msg_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[8.989s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/avig_msg/avig_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[8.995s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/avig_msg/avig_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.002s] [100%] [32m[1mLinking C shared library rosidl_generator_py/avig_msg/avig_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.029s] [100%] Built target avig_msg__rosidl_typesupport_c__pyext
+[9.047s] [100%] Built target avig_msg__rosidl_typesupport_fastrtps_c__pyext
+[9.048s] [100%] Built target avig_msg__rosidl_typesupport_introspection_c__pyext
+[9.064s] Invoked command in '/home/edub/ros2_ws/build/avig_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/edub/ros2_ws/build/avig_msg -- -j6 -l6
+[9.075s] Invoking command in '/home/edub/ros2_ws/build/avig_msg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/edub/ros2_ws/build/avig_msg
+[9.088s] -- Install configuration: ""
+[9.088s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/rosidl_interfaces/avig_msg
+[9.088s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg
+[9.088s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action
+[9.088s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__functions.h
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__functions.c
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.h
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__struct.h
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/mover_a.h
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__functions.h
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__struct.h
+[9.089s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__functions.c
+[9.090s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/heuristica.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__functions.c
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__struct.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__functions.c
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__struct.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__functions.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__functions.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel_array.h
+[9.093s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_generator_c__visibility_control.h
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/library_path.sh
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/library_path.dsv
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_generator_c.so
+[9.094s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_generator_c.so" to ""
+[9.094s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg
+[9.094s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action
+[9.094s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_fastrtps_c.h
+[9.094s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv
+[9.094s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_fastrtps_c.h
+[9.094s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg
+[9.094s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_fastrtps_c.h
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_fastrtps_c.h
+[9.094s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[9.095s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_fastrtps_c.so
+[9.095s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_fastrtps_c.so" to ""
+[9.095s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg
+[9.095s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action
+[9.095s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail
+[9.095s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_introspection_c.h
+[9.095s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.c
+[9.095s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv
+[9.095s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_introspection_c.h
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.c
+[9.096s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[9.096s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.c
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_introspection_c.h
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.c
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_introspection_c.h
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_introspection_c.so
+[9.096s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_introspection_c.so" to ""
+[9.096s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_c.so
+[9.097s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_c.so" to ""
+[9.097s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg
+[9.097s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action
+[9.097s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/mover_a.hpp
+[9.097s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail
+[9.097s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__struct.hpp
+[9.097s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__traits.hpp
+[9.099s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.hpp
+[9.100s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__builder.hpp
+[9.101s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv
+[9.101s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail
+[9.101s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__traits.hpp
+[9.101s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__struct.hpp
+[9.101s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__builder.hpp
+[9.102s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.hpp
+[9.102s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/heuristica.hpp
+[9.102s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg
+[9.103s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel_array.hpp
+[9.103s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_generator_cpp__visibility_control.hpp
+[9.103s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail
+[9.103s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.hpp
+[9.103s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__traits.hpp
+[9.103s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__builder.hpp
+[9.103s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__struct.hpp
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__builder.hpp
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__traits.hpp
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__struct.hpp
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.hpp
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/april_tag_pixel.hpp
+[9.104s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg
+[9.104s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action
+[9.104s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/dds_fastrtps
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_fastrtps_cpp.hpp
+[9.104s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv
+[9.104s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/dds_fastrtps
+[9.104s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_fastrtps_cpp.hpp
+[9.104s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_fastrtps_cpp.hpp
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/dds_fastrtps
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_fastrtps_cpp.hpp
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_fastrtps_cpp.so
+[9.105s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_fastrtps_cpp.so" to ""
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__rosidl_typesupport_introspection_cpp.hpp
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/action/detail/mover_a__type_support.cpp
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__rosidl_typesupport_introspection_cpp.hpp
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/srv/detail/heuristica__type_support.cpp
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg
+[9.105s] -- Up-to-date: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__type_support.cpp
+[9.105s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel_array__rosidl_typesupport_introspection_cpp.hpp
+[9.106s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__type_support.cpp
+[9.106s] -- Installing: /home/edub/ros2_ws/install/avig_msg/include/avig_msg/avig_msg/msg/detail/april_tag_pixel__rosidl_typesupport_introspection_cpp.hpp
+[9.106s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_introspection_cpp.so
+[9.106s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_introspection_cpp.so" to ""
+[9.106s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_cpp.so
+[9.106s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_typesupport_cpp.so" to ""
+[9.106s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/pythonpath.sh
+[9.107s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/pythonpath.dsv
+[9.107s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info
+[9.107s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/dependency_links.txt
+[9.107s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/PKG-INFO
+[9.110s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/top_level.txt
+[9.110s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg-0.0.0-py3.10.egg-info/SOURCES.txt
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/_mover_a.py
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/_mover_a_s.c
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/__init__.py
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/_heuristica_s.c
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/_heuristica.py
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/__init__.py
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/_avig_msg_s.ep.rosidl_typesupport_fastrtps_c.c
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/_avig_msg_s.ep.rosidl_typesupport_c.c
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/libavig_msg__rosidl_generator_py.so
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel_array.py
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel_array_s.c
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel.py
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/__init__.py
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel_s.c
+[9.111s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/__init__.py
+[9.112s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/_avig_msg_s.ep.rosidl_typesupport_introspection_c.c
+[9.161s] Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg'...
+[9.161s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/__init__.py'...
+[9.161s] Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action'...
+[9.161s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/__init__.py'...
+[9.161s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/action/_mover_a.py'...
+[9.161s] Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg'...
+[9.161s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/__init__.py'...
+[9.161s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel.py'...
+[9.162s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/msg/_april_tag_pixel_array.py'...
+[9.162s] Listing '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv'...
+[9.162s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/__init__.py'...
+[9.162s] Compiling '/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/srv/_heuristica.py'...
+[9.169s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.170s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.170s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.171s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.171s] -- Installing: /home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.171s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages/avig_msg/avig_msg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.172s] -- Installing: /home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_generator_py.so
+[9.172s] -- Set runtime path of "/home/edub/ros2_ws/install/avig_msg/lib/libavig_msg__rosidl_generator_py.so" to ""
+[9.172s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixel.idl
+[9.173s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixelArray.idl
+[9.173s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica.idl
+[9.173s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/action/MoverA.idl
+[9.173s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixel.msg
+[9.173s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/msg/AprilTagPixelArray.msg
+[9.173s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica.srv
+[9.174s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica_Request.msg
+[9.174s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/srv/Heuristica_Response.msg
+[9.174s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/action/MoverA.action
+[9.174s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/package_run_dependencies/avig_msg
+[9.175s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/parent_prefix_path/avig_msg
+[9.175s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/ament_prefix_path.sh
+[9.175s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/ament_prefix_path.dsv
+[9.175s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/path.sh
+[9.175s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/environment/path.dsv
+[9.175s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.bash
+[9.176s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.sh
+[9.176s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.zsh
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/local_setup.dsv
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/package.dsv
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/ament_index/resource_index/packages/avig_msg
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_cExport.cmake
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_cExport-noconfig.cmake
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cExport.cmake
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cExport.cmake
+[9.177s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[9.178s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cExport.cmake
+[9.178s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cExport-noconfig.cmake
+[9.178s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_cppExport.cmake
+[9.178s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cppExport.cmake
+[9.178s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[9.178s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cppExport.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cppExport.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msg__rosidl_typesupport_cppExport-noconfig.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_pyExport.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/export_avig_msg__rosidl_generator_pyExport-noconfig.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/rosidl_cmake-extras.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_dependencies-extras.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_include_directories-extras.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_libraries-extras.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/ament_cmake_export_targets-extras.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[9.179s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[9.180s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msgConfig.cmake
+[9.180s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/cmake/avig_msgConfig-version.cmake
+[9.180s] -- Installing: /home/edub/ros2_ws/install/avig_msg/share/avig_msg/package.xml
+[9.183s] Invoked command in '/home/edub/ros2_ws/build/avig_msg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/edub/ros2_ws/build/avig_msg

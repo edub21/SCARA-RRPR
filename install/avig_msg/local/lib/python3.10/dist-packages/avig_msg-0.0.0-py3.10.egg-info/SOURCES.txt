@@ -1,0 +1,14 @@
+setup.py
+avig_msg/__init__.py
+avig_msg.egg-info/PKG-INFO
+avig_msg.egg-info/SOURCES.txt
+avig_msg.egg-info/dependency_links.txt
+avig_msg.egg-info/top_level.txt
+avig_msg/action/__init__.py
+avig_msg/action/_mover_a.py
+avig_msg/msg/__init__.py
+avig_msg/msg/_april_tag_pixel.py
+avig_msg/msg/_april_tag_pixel_array.py
+avig_msg/msg/_obj_detect.py
+avig_msg/srv/__init__.py
+avig_msg/srv/_heuristica.py

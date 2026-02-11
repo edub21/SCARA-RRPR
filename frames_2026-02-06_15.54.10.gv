@@ -1,0 +1,9 @@
+digraph G {
+"brazo_link" -> "antebrazo_link"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1770411250.478159\nOldest transform: 1770411245.47828\n"];
+"base_link" -> "brazo_link"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1770411250.478159\nOldest transform: 1770411245.47828\n"];
+"antebrazo_link" -> "efector_link"[label=" Broadcaster: default_authority\nAverage rate: 10.2\nBuffer length: 5.0\nMost recent transform: 1770411250.478159\nOldest transform: 1770411245.47828\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1770411250.4840055"[ shape=plaintext ] ;
+}->"base_link";
+}
