@@ -5,6 +5,7 @@ import rclpy
 import math
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
+from std_msgs.msg import Int32  # ### NUEVO: Necesario para enviar la señal al FSM
 # IMPORTANTE: Cambia 'mi_pkg_interfaces' por el nombre real de tu paquete de mensajes
 from avig_msg.msg import ObjDetect 
 from scipy.spatial.transform import Rotation as R
@@ -14,23 +15,40 @@ class AprilTagToROS2(Node):
     def __init__(self):
         super().__init__('apriltag_to_ros2')
         
-        # Publicadores
+        # Publicadores existentes
         self.pub_r1 = self.create_publisher(JointState, 'r1/joint_states', 10)
         self.pub_r2 = self.create_publisher(JointState, 'r2/joint_states', 10)
-        
-        # CAMBIO: Publicador usando tu mensaje personalizado
         self.pub_objects = self.create_publisher(ObjDetect, '/detected_objects', 10)
 
-        # Cargar parámetros (Asegúrate que la ruta sea correcta)
-        with open("/home/edub/ros2_ws/src/mi_pkg_python/proyecto/camera_calibration.yaml", 'r') as f:
-            calib_data = yaml.safe_load(f)
-        self.K = np.array(calib_data['camera_matrix']['data']).reshape(3, 3)
-        self.dist = np.array(calib_data['distortion_coefficients']['data'])
+        # ### NUEVO: Publicador para disparar el FSM (fms.py)
+        self.pub_trigger = self.create_publisher(Int32, '/sistema/trigger', 10)
+
+        # ### NUEVO: Configuración de Zonas de Detección (Pick Zones)
+        # Distancia configurable (radio de tolerancia en cm)
+        self.distancia_tolerancia = 1.0 
+
+        # Coordenadas objetivo para disparar Robot 1 (respecto a Tag 1)
+        self.zona_r1 = {'x': 2.0, 'y': 44.0} 
+        
+        # Coordenadas objetivo para disparar Robot 2 (respecto a Tag 2)
+        self.zona_r2 = {'x': 20.0, 'y': -15.0}
+
+        # Cargar parámetros
+        try:
+            with open("/home/edub/ros2_ws/src/mi_pkg_python/proyecto/camera_calibration.yaml", 'r') as f:
+                calib_data = yaml.safe_load(f)
+            self.K = np.array(calib_data['camera_matrix']['data']).reshape(3, 3)
+            self.dist = np.array(calib_data['distortion_coefficients']['data'])
+        except Exception as e:
+            self.get_logger().error(f"Error cargando calibración: {e}")
+            # Valores dummy para que no falle si no encuentra el archivo
+            self.K = np.eye(3)
+            self.dist = np.zeros(5)
 
         self.at_detector = Detector(families='tag36h11')
         self.tag_size = 0.04 
         
-        self.get_logger().info("Nodo AprilTag -> ROS 2 iniciado")
+        self.get_logger().info("Nodo AprilTag -> ROS 2 iniciado con Trigger de Zonas")
 
     def get_relative_transform(self, tag_base, tag_child):
         """Matriz de transformación de child respecto a base"""
@@ -49,10 +67,32 @@ class AprilTagToROS2(Node):
         r = R.from_matrix(T_rel[:3, :3])
         return r.as_euler('xyz')[2]
 
+    def check_and_trigger_zone(self, base_id, x_cm, y_cm):
+        """
+        ### NUEVO: Verifica si el objeto está en la zona correcta y dispara el robot
+        """
+        target = None
+        
+        if base_id == 1:
+            target = self.zona_r1
+            trigger_code = 1
+        elif base_id == 2:
+            target = self.zona_r2
+            trigger_code = 2
+            
+        if target:
+            # Calcular distancia entre donde está el objeto y donde debería estar
+            dist_error = math.sqrt((x_cm - target['x'])**2 + (y_cm - target['y'])**2)
+            
+            if dist_error <= self.distancia_tolerancia:
+                # Está dentro del rango permitido
+                msg = Int32()
+                msg.data = trigger_code
+                self.pub_trigger.publish(msg)
+                # Log opcional para ver que se disparó (puedes comentarlo para no saturar)
+                # self.get_logger().info(f"TRIGGER ROBOT {base_id} | Obj en X:{x_cm:.1f} Y:{y_cm:.1f}")
+
     def process_and_publish_object(self, base_id, tag_obj, tag_dict):
-        """
-        Calcula y publica los datos del objeto respecto a la base dada.
-        """
         if base_id not in tag_dict: return
 
         # 1. Obtener Transformada Relativa
@@ -62,17 +102,16 @@ class AprilTagToROS2(Node):
         x_cm = T_rel[0, 3] * 100
         y_cm = T_rel[1, 3] * 100
         
-        # 3. Calcular Distancia Euclidiana (Pitágoras)
+        # 3. Calcular Distancia Euclidiana (Pitágoras desde el origen de la base)
         distancia = math.sqrt(x_cm**2 + y_cm**2)
 
         # 4. Calcular Orientación (Yaw)
-        orientacion = self.get_yaw_diff(T_rel) # En radianes
+        orientacion = self.get_yaw_diff(T_rel) 
 
-        # 5. Definir 'Orden' (Lógica de ejemplo: ID 30 -> 1, ID 31 -> 2...)
-        # Ajusta esto según tu lógica de negocio
+        # 5. Definir 'Orden'
         orden_val = (tag_obj.tag_id % 10) + 1 
 
-        # 6. Crear y Publicar Mensaje
+        # 6. Crear y Publicar Mensaje ObjDetect
         msg = ObjDetect()
         msg.id = int(tag_obj.tag_id)
         msg.posx = float(x_cm)
@@ -82,8 +121,9 @@ class AprilTagToROS2(Node):
         msg.orient = float(orientacion)
         
         self.pub_objects.publish(msg)
-        # Opcional: Debug en consola
-        # print(f"Obj {msg.id}: X={x_cm:.1f} Y={y_cm:.1f} Dist={distancia:.1f}")
+
+        # ### NUEVO: Verificar zona para activar el robot
+        self.check_and_trigger_zone(base_id, x_cm, y_cm)
 
     def process_frame(self, frame):
         h, w = frame.shape[:2]
@@ -107,7 +147,7 @@ class AprilTagToROS2(Node):
             corners = np.int32(tag.corners)
             cv2.polylines(undistorted, [corners], True, (0, 255, 0), 2)
 
-            # --- LÓGICA DE DETECCIÓN DE OBJETOS (Corregida Indentación) ---
+            # --- LÓGICA DE DETECCIÓN DE OBJETOS ---
             
             # Objetos para Robot 1 (Base Tag 1) -> IDs 30-39
             if 30 <= tag.tag_id < 40:
@@ -117,9 +157,9 @@ class AprilTagToROS2(Node):
             if 40 <= tag.tag_id < 50:
                 self.process_and_publish_object(2, tag, tag_dict)
 
-        # --- LÓGICA ARTICULACIONES ROBOTS (Se mantiene igual) ---
+        # --- LÓGICA ARTICULACIONES ROBOTS ---
         
-        # Robot 1
+        # Robot 1 (Cálculo de articulaciones visuales)
         if 1 in tag_dict:
             js1 = JointState()
             js1.header.stamp = self.get_clock().now().to_msg()
@@ -132,17 +172,14 @@ class AprilTagToROS2(Node):
                 js1.position.append(float(-self.get_yaw_diff(T_11_1)))
 
             if 12 in tag_dict and 11 in tag_dict:
-                T_12_1 = self.get_relative_transform(tag_dict[11], tag_dict[12]) # De 11 a 12
-                # OJO: Tu lógica original usaba T_12_1 directo para Z. 
-                # Si quieres Z respecto a base, necesitarías T_12_Base.
-                # Dejo tu lógica original aquí:
+                T_12_1 = self.get_relative_transform(tag_dict[11], tag_dict[12]) 
                 z_diff = T_12_1[2, 3] + 0.215
                 js1.name.extend(['r1_antebrazo_joint', 'r1_efector_joint'])
                 js1.position.extend([float(-self.get_yaw_diff(T_12_1)), float(z_diff)])
             
             if js1.name: self.pub_r1.publish(js1)
 
-        # Robot 2
+        # Robot 2 (Cálculo de articulaciones visuales)
         if 2 in tag_dict:
             js2 = JointState()
             js2.header.stamp = self.get_clock().now().to_msg()
@@ -167,8 +204,8 @@ class AprilTagToROS2(Node):
 def main():
     rclpy.init()
     node = AprilTagToROS2()
-    cap = cv2.VideoCapture(0)
-    alfa = 1; beta = 0# Ajuste brillo/contraste sugerido
+    cap = cv2.VideoCapture(0) # Asegúrate que el índice de cámara sea correcto
+    alfa = 0.8; beta = 0
 
     try:
         while rclpy.ok():

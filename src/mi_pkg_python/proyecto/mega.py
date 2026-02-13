@@ -5,94 +5,135 @@ import serial
 import time
 import math
 
-class MegaDriverNode(Node):
+PUERTO = '/dev/ttyACM0' 
+BAUDIOS = 9600
+
+class ScaraDriver(Node):
     def __init__(self):
-        super().__init__('driver_arduino')
+        super().__init__('scara_driver')
         
-        # ================= CONFIGURACIÓN SERIAL =================
-        self.declare_parameter('port', '/dev/ttyACM0')
-        self.declare_parameter('baud', 9600)
-        
-        puerto = self.get_parameter('port').get_parameter_value().string_value
-        baud = self.get_parameter('baud').get_parameter_value().integer_value
+        self.arduino = None
+        self.conectar_arduino()
 
+        # Posición actual en GRADOS
+        self.last_pos_deg = {
+            'ra1': {'j1': 0.0, 'j2': 0.0},
+            'ra2': {'j1': 0.0, 'j2': 0.0}
+        }
+        
+        self.current_cmd = {
+            'ra1': [0.0, 0.0, 90, 90, 0], 
+            'ra2': [0.0, 0.0, 90, 90, 0]
+        }
+
+        self.robot_moving = False
+        self.pending_update = False
+
+        for ns in ['ra1', 'ra2']:
+            # Movimiento normal
+            self.create_subscription(Float32MultiArray, f'/{ns}/joint_goals', lambda m, n=ns: self.cb_goal(m, n), 10)
+            # Control de válvula
+            self.create_subscription(UInt8, f'/{ns}/valve_cmd', lambda m, n=ns: self.cb_valve(m, n), 10)
+            # NUEVO: Sincronización forzada (Set Pose) sin mover motores
+            self.create_subscription(Float32MultiArray, f'/{ns}/set_pose', lambda m, n=ns: self.cb_set_pose(m, n), 10)
+            
+        self.pub_state_ra1 = self.create_publisher(UInt8, '/ra1/motion_state', 10)
+        self.pub_state_ra2 = self.create_publisher(UInt8, '/ra2/motion_state', 10)
+
+        self.timer = self.create_timer(0.05, self.control_loop)
+        self.get_logger().info("Driver SCARA Listo con SetPose.")
+
+    def conectar_arduino(self):
         try:
-            self.ser = serial.Serial(puerto, baud, timeout=1)
-            self.get_logger().info(f"Conectado a Arduino en {puerto}")
-            time.sleep(2) # Espera reinicio
+            self.arduino = serial.Serial(PUERTO, BAUDIOS, timeout=0.1)
+            time.sleep(2)
+            self.arduino.reset_input_buffer()
+        except:
+            self.get_logger().error(f"No se pudo conectar a {PUERTO}")
+
+    def rad2deg(self, rad):
+        return rad * (180.0 / math.pi)
+
+    # NUEVA FUNCIÓN: Actualiza la memoria del driver sin mover el robot
+    def cb_set_pose(self, msg, ns):
+        try:
+            # msg viene en radianes desde la visión -> Convertir a grados
+            j1_deg = self.rad2deg(msg.data[0])
+            j2_deg = self.rad2deg(msg.data[1])
+            
+            self.last_pos_deg[ns]['j1'] = j1_deg
+            self.last_pos_deg[ns]['j2'] = j2_deg
+            self.get_logger().info(f"[{ns}] CALIBRADO: j1={j1_deg:.2f}, j2={j2_deg:.2f}")
         except Exception as e:
-            self.get_logger().error(f"Error Serial: {e}")
-            raise e
+            self.get_logger().error(f"Error en set_pose: {e}")
 
-        # ================= ESTADO DE LOS ROBOTS =================
-        # [R1_N23, R1_N17, R1_Z, R2_N23, R2_N17, R2_Z, R1_V, R2_V]
-        self.current_goals = [0.0] * 10 
-        
-        # ================= SUBSCRIPTORES =================
-        # Escucha de Robot 1
-        self.create_subscription(Float32MultiArray, '/ra1/joint_goals', self.r1_callback, 10)
-        self.create_subscription(UInt8, '/ra1/valve_cmd', self.v1_callback, 10)
-        
-        # Escucha de Robot 2
-        self.create_subscription(Float32MultiArray, '/ra2/joint_goals', self.r2_callback, 10)
-        self.create_subscription(UInt8, '/ra2/valve_cmd', self.v2_callback, 10)
+    def cb_goal(self, msg, ns):
+        try:
+            t_j1 = self.rad2deg(msg.data[0])
+            t_j2 = self.rad2deg(msg.data[1])
+            
+            # Cálculo relativo: Destino - Origen
+            rel_j1 = t_j1 - self.last_pos_deg[ns]['j1']
+            rel_j2 = t_j2 - self.last_pos_deg[ns]['j2']
+            
+            self.last_pos_deg[ns]['j1'] = t_j1
+            self.last_pos_deg[ns]['j2'] = t_j2
 
-        # Publicador de estado (para que la FSM sepa que terminó)
-        self.pub_state_r1 = self.create_publisher(UInt8, '/ra1/motion_state', 10)
-        self.pub_state_r2 = self.create_publisher(UInt8, '/ra2/motion_state', 10)
+            z_req = msg.data[2]
+            servo_z = 180 if z_req > 0.5 else 0 
 
-        self.get_logger().info("Nodo Mega Driver listo y escuchando comandos...")
+            self.current_cmd[ns][0] = rel_j1
+            self.current_cmd[ns][1] = rel_j2
+            self.current_cmd[ns][2] = servo_z 
+            
+            self.pending_update = True
+        except Exception as e:
+            self.get_logger().error(f"Error goal {ns}: {e}")
 
-    def r1_callback(self, msg):
-        # msg.data = [q1_rad, q2_rad, z_bool]
-        q1_deg = math.degrees(msg.data[0])
-        q2_deg = math.degrees(msg.data[1])
-        # Actualizamos parte del comando final
-        self.current_goals[0] = q1_deg
-        self.current_goals[1] = q2_deg
-        # Lógica de servos según tu URDF
-        self.current_goals[2] = 45 if msg.data[2] > 0.5 else 90 # Ejemplo
-        self.enviar_a_arduino()
-
-    def r2_callback(self, msg):
-        q1_deg = math.degrees(msg.data[0])
-        q2_deg = math.degrees(msg.data[1])
-        self.current_goals[5] = q1_deg
-        self.current_goals[6] = q2_deg
-        self.enviar_a_arduino()
-
-    def v1_callback(self, msg):
-        self.current_goals[4] = msg.data
-        self.enviar_a_arduino()
-
-    def v2_callback(self, msg):
-        self.current_goals[9] = msg.data
-        self.enviar_a_arduino()
+    def cb_valve(self, msg, ns):
+        self.current_cmd[ns][4] = 1 if msg.data > 0 else 0
+        self.pending_update = True
 
     def enviar_a_arduino(self):
-        # Convertir lista a string CSV
-        mensaje = ",".join(map(lambda x: f"{x:.2f}", self.current_goals)) + "\n"
-        self.ser.write(mensaje.encode('utf-8'))
+        if not self.arduino: return
+        c1 = self.current_cmd['ra1']
+        c2 = self.current_cmd['ra2']
+        datos = [
+            c1[0], c1[1], c1[2], 90, c1[4], 
+            c2[0], c2[1], c2[2], 90, c2[4]
+        ]
+        linea = ",".join(map(str, datos)) + "\n"
+        self.arduino.write(linea.encode('utf-8'))
         
-        # Esperar respuesta "Movimiento terminado"
-        while True:
-            if self.ser.in_waiting > 0:
-                linea = self.ser.readline().decode('utf-8', errors='ignore').strip()
-                if "Movimiento terminado" in linea:
-                    # Notificar a ROS que estamos libres
-                    self.pub_state_r1.publish(UInt8(data=0))
-                    self.pub_state_r2.publish(UInt8(data=0))
-                    break
+        # Reset incrementos
+        self.current_cmd['ra1'][0] = 0.0; self.current_cmd['ra1'][1] = 0.0
+        self.current_cmd['ra2'][0] = 0.0; self.current_cmd['ra2'][1] = 0.0
 
-# ================= FUNCIÓN MAIN (ESTO ES LO QUE TE FALTABA) =================
-def main(args=None):
-    rclpy.init(args=args)
+    def control_loop(self):
+        if not self.arduino: return
+        if self.arduino.in_waiting:
+            linea = self.arduino.readline().decode('utf-8', errors='ignore').strip()
+            if "Movimiento terminado" in linea:
+                self.robot_moving = False
+                self.pub_state_ra1.publish(UInt8(data=0))
+                self.pub_state_ra2.publish(UInt8(data=0))
+
+        if self.pending_update and not self.robot_moving:
+            self.enviar_a_arduino()
+            self.robot_moving = True
+            self.pending_update = False
+            self.pub_state_ra1.publish(UInt8(data=1))
+            self.pub_state_ra2.publish(UInt8(data=1))
+
+def main():
+    rclpy.init()
+    node = ScaraDriver()
     try:
-        node = MegaDriverNode()
         rclpy.spin(node)
-    except Exception as e:
-        print(f"Error en el nodo Mega: {e}")
+    except KeyboardInterrupt: pass
     finally:
+        if node.arduino: node.arduino.close()
+        node.destroy_node()
         rclpy.shutdown()
 
 if __name__ == '__main__':

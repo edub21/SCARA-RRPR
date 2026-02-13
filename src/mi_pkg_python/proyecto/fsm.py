@@ -7,9 +7,7 @@ import math
 
 # ================= CONFIGURACIÓN FÍSICA =================
 L1 = 20.0  
-L2 = 20.0
-TIEMPO_SERVO_Z  = 2.0  # Tiempo para subir o bajar el prismático
-TIEMPO_VALVULA  = 0.5  # Tiempo para activar/desactivar aire
+L2 = 20.0  
 
 class Step(Enum):
     # --- FASE DE INICIO ---
@@ -17,21 +15,16 @@ class Step(Enum):
     
     # --- FASE DE TRABAJO ---
     IDLE = 0
-    MOVE_TO_PICK_XY = 1  # 1. Posicionarse sobre el objeto
-    PICK_DOWN = 2        # 2. Bajar Z
-    GRIP_ON = 3          # 3. Activar Válvula
+    MOVE_TO_PICK_XY = 1
+    PICK_DOWN = 2
+    GRIP_ON = 3
     
-    PICK_UP = 30         # 3a. NUEVO: Subir Z recto antes de mover
+    MOVE_AVOID_OBSTACLE = 40 # Rodear obstáculo
+    MOVE_TO_PLACE_XY = 4     # Ir a caja
     
-    MOVE_AVOID_OBSTACLE = 40 # 4a. Rodear obstáculo (ya arriba)
-    MOVE_TO_PLACE_XY = 4     # 4b. Ir a destino
-    
-    PLACE_DOWN = 5       # 5. Bajar Z en destino
-    GRIP_OFF = 6         # 6. Desactivar Válvula
-    
-    PLACE_UP = 60        # 6a. NUEVO: Subir Z recto antes de ir a Home
-    
-    MOVE_HOME = 7        # 7. Volver a Home
+    PLACE_DOWN = 5
+    GRIP_OFF = 6
+    MOVE_HOME = 7
     DONE = 8
     ERROR = 99
 
@@ -67,6 +60,9 @@ class ScaraTaskFSM(Node):
                 'boxes': [(-10.0, -25.0), (-10.0, -35.0), (0.0, -25.0), (0.0, -35.0)]
             }
         }
+        # ===============================================
+
+        self.effector_settle_sec = 0.5 
 
         self.pub_goals = {}
         self.pub_valve = {}
@@ -83,7 +79,7 @@ class ScaraTaskFSM(Node):
             )
 
         self.timer = self.create_timer(0.1, self._tick)
-        self.get_logger().info('FSM Listo. Secuencia: Bajar -> Agarrar -> Subir -> Mover.')
+        self.get_logger().info('FSM Listo (Delay 0.5s en bajada). Iniciando Home...')
 
     # ================= CINEMÁTICA =================
     def inverse_kinematics(self, x, y):
@@ -166,26 +162,26 @@ class ScaraTaskFSM(Node):
 
     def _run_sequence(self, ns, ctx):
         
-        # --- INICIO ---
+        # --- INICIO (HOME FORZADO) ---
         if ctx.step == Step.INIT_SEQUENCE:
             if not ctx.waiting_done:
-                self.pub_valve[ns].publish(UInt8(data=1)) # OFF
+                self.pub_valve[ns].publish(UInt8(data=1)) # OFF al inicio
                 self.send_robot_cmd_raw(ns, -90.0, 90.0, z_up=True)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
             elif self.check_done(ns, ctx):
                 ctx.step = Step.IDLE
 
-        # --- CICLO ---
+        # --- CICLO DE TRABAJO ---
         elif ctx.step == Step.IDLE:
             return
 
-        # 1. PICK
+        # 1. PICK (20, 0)
         elif ctx.step == Step.MOVE_TO_PICK_XY:
             if not ctx.waiting_done:
                 tx, ty = self.coords[ns]['pick']
                 self.send_robot_cmd_xy(ns, tx, ty, z_up=True)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 1. Yendo a Pick...")
+                self.get_logger().info(f"[{ns}] 1. Pick ({tx}, {ty})")
             elif self.check_done(ns, ctx):
                 ctx.step = Step.PICK_DOWN; ctx.waiting_done = False
 
@@ -193,54 +189,37 @@ class ScaraTaskFSM(Node):
         elif ctx.step == Step.PICK_DOWN:
             if not ctx.waiting_done:
                 tx, ty = self.coords[ns]['pick']
-                self.send_robot_cmd_xy(ns, tx, ty, z_up=False) 
+                self.send_robot_cmd_xy(ns, tx, ty, z_up=False)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 2. Bajando Z...")
+            # MODIFICADO: Esperar 0.5s EXTRA después de llegar
             elif self.check_done(ns, ctx):
-                if self.wait_timer(ctx, TIEMPO_SERVO_Z): 
+                if self.wait_timer(ctx, 0.5): # <--- RETARDO AGREGADO
                     ctx.step = Step.GRIP_ON
                     ctx.waiting_done = False
 
         # 3. AGARRE (0 = ON)
         elif ctx.step == Step.GRIP_ON:
             self.pub_valve[ns].publish(UInt8(data=0))
-            self.get_logger().info(f"[{ns}] 3. Agarre ON")
-            if self.wait_timer(ctx, TIEMPO_VALVULA):
-                ctx.step = Step.PICK_UP # <--- CAMBIO: NO VAMOS A OBSTÁCULO AUN
-                ctx.waiting_done = False
+            if self.wait_timer(ctx, self.effector_settle_sec):
+                ctx.step = Step.MOVE_AVOID_OBSTACLE; ctx.waiting_done = False
 
-        # 3a. NUEVO: SUBIR Z RECTO (LEVANTAR CAJA)
-        elif ctx.step == Step.PICK_UP:
-            if not ctx.waiting_done:
-                # Nos mantenemos en las mismas coordenadas de PICK, pero Z=True
-                tx, ty = self.coords[ns]['pick']
-                self.send_robot_cmd_xy(ns, tx, ty, z_up=True) 
-                ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 3a. Levantando caja (Z Up)...")
-            
-            elif self.check_done(ns, ctx):
-                # Esperamos que suba el servo antes de mover horizontalmente
-                if self.wait_timer(ctx, TIEMPO_SERVO_Z):
-                    ctx.step = Step.MOVE_AVOID_OBSTACLE
-                    ctx.waiting_done = False
-
-        # 4a. RODEAR OBSTACULO (Ya estamos arriba)
+        # 4A. RODEAR OBSTACULO
         elif ctx.step == Step.MOVE_AVOID_OBSTACLE:
             if not ctx.waiting_done:
                 wx, wy = self.coords[ns]['waypoint']
                 self.send_robot_cmd_xy(ns, wx, wy, z_up=True)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 4a. Esquivando...")
+                self.get_logger().info(f"[{ns}] 4a. Esquivando obstáculo via ({wx}, {wy})")
             elif self.check_done(ns, ctx):
                 ctx.step = Step.MOVE_TO_PLACE_XY; ctx.waiting_done = False
 
-        # 4b. IR A CAJA
+        # 4B. IR A CAJA
         elif ctx.step == Step.MOVE_TO_PLACE_XY:
             if not ctx.waiting_done:
                 bx, by = self.coords[ns]['boxes'][ctx.target_box_idx]
                 self.send_robot_cmd_xy(ns, bx, by, z_up=True)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 4b. Yendo a destino...")
+                self.get_logger().info(f"[{ns}] 4b. Caja ({bx}, {by})")
             elif self.check_done(ns, ctx):
                 ctx.step = Step.PLACE_DOWN; ctx.waiting_done = False
 
@@ -250,32 +229,17 @@ class ScaraTaskFSM(Node):
                 bx, by = self.coords[ns]['boxes'][ctx.target_box_idx]
                 self.send_robot_cmd_xy(ns, bx, by, z_up=False)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 5. Bajando en destino...")
+            # MODIFICADO: Esperar 0.5s EXTRA después de llegar
             elif self.check_done(ns, ctx):
-                if self.wait_timer(ctx, TIEMPO_SERVO_Z):
+                if self.wait_timer(ctx, 0.5): # <--- RETARDO AGREGADO
                     ctx.step = Step.GRIP_OFF
                     ctx.waiting_done = False
 
         # 6. SOLTAR (1 = OFF)
         elif ctx.step == Step.GRIP_OFF:
             self.pub_valve[ns].publish(UInt8(data=1)) 
-            self.get_logger().info(f"[{ns}] 6. Soltando")
-            if self.wait_timer(ctx, TIEMPO_VALVULA):
-                ctx.step = Step.PLACE_UP # <--- CAMBIO: SUBIR ANTES DE HOME
-                ctx.waiting_done = False
-
-        # 6a. NUEVO: SUBIR EN DESTINO (EVITAR CHOCAR CAJAS)
-        elif ctx.step == Step.PLACE_UP:
-            if not ctx.waiting_done:
-                # Misma posición de la caja, Z arriba
-                bx, by = self.coords[ns]['boxes'][ctx.target_box_idx]
-                self.send_robot_cmd_xy(ns, bx, by, z_up=True) 
-                ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 6a. Subiendo Z para salir...")
-            elif self.check_done(ns, ctx):
-                if self.wait_timer(ctx, TIEMPO_SERVO_Z):
-                    ctx.step = Step.MOVE_HOME
-                    ctx.waiting_done = False
+            if self.wait_timer(ctx, self.effector_settle_sec):
+                ctx.step = Step.MOVE_HOME; ctx.waiting_done = False
 
         # 7. HOME
         elif ctx.step == Step.MOVE_HOME:
