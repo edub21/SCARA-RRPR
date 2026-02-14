@@ -11,7 +11,7 @@ L2 = 20.0
 
 class Step(Enum):
     # --- FASE DE INICIO ---
-    INIT_SEQUENCE = -1   # Home forzado
+    INIT_SEQUENCE = -1   
     
     # --- FASE DE TRABAJO ---
     IDLE = 0
@@ -19,12 +19,12 @@ class Step(Enum):
     PICK_DOWN = 2
     GRIP_ON = 3
     
-    MOVE_AVOID_OBSTACLE = 40 # Rodear obstáculo
-    MOVE_TO_PLACE_XY = 4     # Ir a caja
+    MOVE_AVOID_OBSTACLE = 40 
+    MOVE_TO_PLACE_XY = 4     # <--- Aquí aplicaremos la corrección "Paralelo X"
     
     PLACE_DOWN = 5
     GRIP_OFF = 6
-    MOVE_HOME = 7
+    MOVE_HOME = 7            # <--- Aquí forzaremos 90 grados
     DONE = 8
     ERROR = 99
 
@@ -60,8 +60,7 @@ class ScaraTaskFSM(Node):
                 'boxes': [(-10.0, -25.0), (-10.0, -35.0), (0.0, -25.0), (0.0, -35.0)]
             }
         }
-        # ===============================================
-
+        
         self.effector_settle_sec = 0.5 
 
         self.pub_goals = {}
@@ -71,6 +70,7 @@ class ScaraTaskFSM(Node):
         self.create_subscription(Int32, '/sistema/trigger', self._on_trigger, 10)
 
         for ns in self.robots:
+            # [q1, q2, z_up, q_orient]
             self.pub_goals[ns] = self.create_publisher(Float32MultiArray, f'/{ns}/joint_goals', 10)
             self.pub_valve[ns] = self.create_publisher(UInt8, f'/{ns}/valve_cmd', 10)
             self.sub_state[ns] = self.create_subscription(
@@ -79,7 +79,7 @@ class ScaraTaskFSM(Node):
             )
 
         self.timer = self.create_timer(0.1, self._tick)
-        self.get_logger().info('FSM Listo (Delay 0.5s en bajada). Iniciando Home...')
+        self.get_logger().info('FSM Listo: Home=90deg | Place=Paralelo X')
 
     # ================= CINEMÁTICA =================
     def inverse_kinematics(self, x, y):
@@ -87,8 +87,7 @@ class ScaraTaskFSM(Node):
             dist_sq = x*x + y*y
             max_reach = (L1 + L2) * 0.99 
             if math.sqrt(dist_sq) > max_reach:
-                self.get_logger().error(f"Punto ({x}, {y}) fuera de alcance!")
-                return 0.0, 0.0
+                return 0.0, 0.0 # Fuera de rango
 
             D = (dist_sq - L1**2 - L2**2) / (2 * L1 * L2)
             if D > 1.0: D = 1.0
@@ -99,46 +98,49 @@ class ScaraTaskFSM(Node):
         except:
             return 0.0, 0.0
 
-    # ================= CALLBACKS =================
-    def _on_trigger(self, msg):
-        target = msg.data
-        ns = None
-        if target == 1: ns = 'ra1'
-        elif target == 2: ns = 'ra2'
-        
-        if ns:
-            ctx = self.robots[ns]
-            if ctx.step == Step.IDLE or ctx.step == Step.DONE:
-                self.get_logger().info(f"[{ns}] CAJA {ctx.target_box_idx + 1}")
-                ctx.step = Step.MOVE_TO_PICK_XY
-                ctx.waiting_done = False
-                ctx.seen_moving = False
-                ctx.target_box_idx = (ctx.target_box_idx + 1) % 4
-            elif ctx.step.value < 0:
-                 self.get_logger().warn(f"[{ns}] Inicializando...")
-            else:
-                self.get_logger().warn(f"[{ns}] Ocupado.")
-
-    def _on_motion_state(self, ns, msg):
-        ctx = self.robots[ns]
-        ctx.last_state = msg.data
-        if ctx.waiting_done and ctx.last_state == 1:
-            ctx.seen_moving = True
+    # ================= CÁLCULO DE ORIENTACIÓN "PARALELO AL EJE X" =================
+    def calculate_parallel_orientation(self, q1_rad, q2_rad):
+        """
+        Para que la herramienta quede paralela al eje X global, el servo debe girar
+        en sentido contrario a la suma de los ángulos del brazo.
+        Centro servo = 90 grados.
+        """
+        total_arm_angle_deg = math.degrees(q1_rad + q2_rad)
+        servo_angle = 90.0 - total_arm_angle_deg
+        return max(0.0, min(180.0, servo_angle))
 
     # ================= COMANDOS =================
     def send_robot_cmd_xy(self, ns, x, y, z_up):
+        """
+        Calcula IK y ORIENTACIÓN AUTOMÁTICA (Paralelo a X).
+        Se usa para Pick y Place.
+        """
         q1, q2 = self.inverse_kinematics(x, y)
+        q_orient = self.calculate_parallel_orientation(q1, q2) # <--- Corrección Paralelo
+        
         msg = Float32MultiArray()
-        msg.data = [float(q1), float(q2), float(1.0 if z_up else 0.0)]
+        msg.data = [float(q1), float(q2), float(1.0 if z_up else 0.0), float(q_orient)]
         self.pub_goals[ns].publish(msg)
 
-    def send_robot_cmd_raw(self, ns, q1_deg, q2_deg, z_up):
+    def send_robot_cmd_manual_orient(self, ns, x, y, z_up, fixed_orient):
+        """
+        Calcula IK pero FUERZA la orientación a un valor fijo (ej. 90).
+        Se usa para HOME.
+        """
+        q1, q2 = self.inverse_kinematics(x, y)
+        
+        msg = Float32MultiArray()
+        msg.data = [float(q1), float(q2), float(1.0 if z_up else 0.0), float(fixed_orient)]
+        self.pub_goals[ns].publish(msg)
+        
+    def send_robot_cmd_raw(self, ns, q1_deg, q2_deg, z_up, orient_deg):
         r1 = math.radians(q1_deg)
         r2 = math.radians(q2_deg)
         msg = Float32MultiArray()
-        msg.data = [float(r1), float(r2), float(1.0 if z_up else 0.0)]
+        msg.data = [float(r1), float(r2), float(1.0 if z_up else 0.0), float(orient_deg)]
         self.pub_goals[ns].publish(msg)
 
+    # ================= UTILIDADES =================
     def check_done(self, ns, ctx):
         if not ctx.seen_moving:
             if (time.time() - ctx.step_start_time) > 3.0: 
@@ -162,26 +164,26 @@ class ScaraTaskFSM(Node):
 
     def _run_sequence(self, ns, ctx):
         
-        # --- INICIO (HOME FORZADO) ---
+        # --- INICIO (Home 90 Grados) ---
         if ctx.step == Step.INIT_SEQUENCE:
             if not ctx.waiting_done:
-                self.pub_valve[ns].publish(UInt8(data=1)) # OFF al inicio
-                self.send_robot_cmd_raw(ns, -90.0, 90.0, z_up=True)
+                self.pub_valve[ns].publish(UInt8(data=1)) 
+                # Raw a 90/-90 y Orientacion 90
+                self.send_robot_cmd_raw(ns, -90.0, 90.0, z_up=True, orient_deg=90.0)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
             elif self.check_done(ns, ctx):
                 ctx.step = Step.IDLE
 
-        # --- CICLO DE TRABAJO ---
         elif ctx.step == Step.IDLE:
             return
 
-        # 1. PICK (20, 0)
+        # 1. PICK (También usamos corrección paralela para agarrar bien)
         elif ctx.step == Step.MOVE_TO_PICK_XY:
             if not ctx.waiting_done:
                 tx, ty = self.coords[ns]['pick']
-                self.send_robot_cmd_xy(ns, tx, ty, z_up=True)
+                self.send_robot_cmd_xy(ns, tx, ty, z_up=True) # <--- Calcula orientación
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 1. Pick ({tx}, {ty})")
+                self.get_logger().info(f"[{ns}] 1. Pick...")
             elif self.check_done(ns, ctx):
                 ctx.step = Step.PICK_DOWN; ctx.waiting_done = False
 
@@ -189,15 +191,13 @@ class ScaraTaskFSM(Node):
         elif ctx.step == Step.PICK_DOWN:
             if not ctx.waiting_done:
                 tx, ty = self.coords[ns]['pick']
-                self.send_robot_cmd_xy(ns, tx, ty, z_up=False)
+                self.send_robot_cmd_xy(ns, tx, ty, z_up=False) # Mantiene orientación
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-            # MODIFICADO: Esperar 0.5s EXTRA después de llegar
             elif self.check_done(ns, ctx):
-                if self.wait_timer(ctx, 0.5): # <--- RETARDO AGREGADO
-                    ctx.step = Step.GRIP_ON
-                    ctx.waiting_done = False
+                if self.wait_timer(ctx, 0.5):
+                    ctx.step = Step.GRIP_ON; ctx.waiting_done = False
 
-        # 3. AGARRE (0 = ON)
+        # 3. AGARRE
         elif ctx.step == Step.GRIP_ON:
             self.pub_valve[ns].publish(UInt8(data=0))
             if self.wait_timer(ctx, self.effector_settle_sec):
@@ -207,19 +207,21 @@ class ScaraTaskFSM(Node):
         elif ctx.step == Step.MOVE_AVOID_OBSTACLE:
             if not ctx.waiting_done:
                 wx, wy = self.coords[ns]['waypoint']
-                self.send_robot_cmd_xy(ns, wx, wy, z_up=True)
+                self.send_robot_cmd_xy(ns, wx, wy, z_up=True) # <--- Sigue corrigiendo
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 4a. Esquivando obstáculo via ({wx}, {wy})")
             elif self.check_done(ns, ctx):
                 ctx.step = Step.MOVE_TO_PLACE_XY; ctx.waiting_done = False
 
-        # 4B. IR A CAJA
+        # 4B. IR A CAJA (AQUI QUEREMOS PARALELO EJE X)
         elif ctx.step == Step.MOVE_TO_PLACE_XY:
             if not ctx.waiting_done:
                 bx, by = self.coords[ns]['boxes'][ctx.target_box_idx]
-                self.send_robot_cmd_xy(ns, bx, by, z_up=True)
+                
+                # Usamos send_robot_cmd_xy que incluye calculate_parallel_orientation
+                self.send_robot_cmd_xy(ns, bx, by, z_up=True) 
+                
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-                self.get_logger().info(f"[{ns}] 4b. Caja ({bx}, {by})")
+                self.get_logger().info(f"[{ns}] 4b. Place (Orientacion Paralela X)")
             elif self.check_done(ns, ctx):
                 ctx.step = Step.PLACE_DOWN; ctx.waiting_done = False
 
@@ -227,25 +229,28 @@ class ScaraTaskFSM(Node):
         elif ctx.step == Step.PLACE_DOWN:
             if not ctx.waiting_done:
                 bx, by = self.coords[ns]['boxes'][ctx.target_box_idx]
-                self.send_robot_cmd_xy(ns, bx, by, z_up=False)
+                self.send_robot_cmd_xy(ns, bx, by, z_up=False) # Mantiene corrección
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
-            # MODIFICADO: Esperar 0.5s EXTRA después de llegar
             elif self.check_done(ns, ctx):
-                if self.wait_timer(ctx, 0.5): # <--- RETARDO AGREGADO
-                    ctx.step = Step.GRIP_OFF
-                    ctx.waiting_done = False
+                if self.wait_timer(ctx, 0.5): 
+                    ctx.step = Step.GRIP_OFF; ctx.waiting_done = False
 
-        # 6. SOLTAR (1 = OFF)
+        # 6. SOLTAR
         elif ctx.step == Step.GRIP_OFF:
             self.pub_valve[ns].publish(UInt8(data=1)) 
             if self.wait_timer(ctx, self.effector_settle_sec):
                 ctx.step = Step.MOVE_HOME; ctx.waiting_done = False
 
-        # 7. HOME
+        # 7. HOME (AQUI FORZAMOS 90 GRADOS)
         elif ctx.step == Step.MOVE_HOME:
             if not ctx.waiting_done:
-                self.send_robot_cmd_raw(ns, -90.0, 90.0, z_up=True)
+                hx, hy = self.coords[ns]['home_coords']
+                
+                # Usamos la funcion MANUAL que fuerza el angulo a 90.0
+                self.send_robot_cmd_manual_orient(ns, hx, hy, z_up=True, fixed_orient=90.0)
+                
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
+                self.get_logger().info(f"[{ns}] 7. Home (Orientacion Reset 90)")
             elif self.check_done(ns, ctx):
                 ctx.step = Step.DONE
 

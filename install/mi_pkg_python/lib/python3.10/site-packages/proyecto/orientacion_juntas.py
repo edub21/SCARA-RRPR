@@ -25,10 +25,10 @@ class AprilTagToROS2(Node):
 
         # ### NUEVO: Configuración de Zonas de Detección (Pick Zones)
         # Distancia configurable (radio de tolerancia en cm)
-        self.distancia_tolerancia = 1.0 
+        self.distancia_tolerancia = 3.0 
 
         # Coordenadas objetivo para disparar Robot 1 (respecto a Tag 1)
-        self.zona_r1 = {'x': 0.0, 'y': 44.0} 
+        self.zona_r1 = {'x': 2.0, 'y': 44.0} 
         
         # Coordenadas objetivo para disparar Robot 2 (respecto a Tag 2)
         self.zona_r2 = {'x': 20.0, 'y': -15.0}
@@ -205,7 +205,7 @@ def main():
     rclpy.init()
     node = AprilTagToROS2()
     cap = cv2.VideoCapture(0) # Asegúrate que el índice de cámara sea correcto
-    alfa = 0.8; beta = 0
+    alfa = 0.7; beta = -10
 
     try:
         while rclpy.ok():
