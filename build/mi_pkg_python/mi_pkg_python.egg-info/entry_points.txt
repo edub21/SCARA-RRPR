@@ -10,6 +10,7 @@ cliente_1 = servicios.srv_cliente:main
 p_fsm = proyecto.fsm:main
 p_mega = proyecto.mega:main
 p_orientacion2juntas = proyecto.orientacion_juntas:main
+p_orientacion2juntasSCARA2 = proyecto.orientacion_juntas_Scara2:main
 p_prueba = proyecto.prueba_publicador:main
 p_puente = proyecto.puente_mqtt_ros2:main
 p_set = proyecto.set:main

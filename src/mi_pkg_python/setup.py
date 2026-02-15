@@ -55,6 +55,7 @@ setup(
         'p_fsm  = proyecto.fsm:main',
         'p_vision2riz  = proyecto.vision_to_rviz:main',
         'p_orientacion2juntas  = proyecto.orientacion_juntas:main',
+        'p_orientacion2juntasSCARA2  = proyecto.orientacion_juntas_Scara2:main',
         'p_mega  = proyecto.mega:main',
         
         ],       

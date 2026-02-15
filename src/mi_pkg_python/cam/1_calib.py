@@ -6,7 +6,7 @@ import yaml
 
 # Parámetros del tablero
 CHECKERBOARD = (10, 7)  # esquinas internas: columnas x filas (10x7 → 11x8 cuadrados)
-SQUARE_SIZE = 0.024  # tamaño del cuadrado en metros
+SQUARE_SIZE = 0.025  # tamaño del cuadrado en metros
 
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
 

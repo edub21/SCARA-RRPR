@@ -25,13 +25,13 @@ class AprilTagToROS2(Node):
 
         # ### NUEVO: Configuración de Zonas de Detección (Pick Zones)
         # Distancia configurable (radio de tolerancia en cm)
-        self.distancia_tolerancia = 3.0 
+        self.distancia_tolerancia = 2.0 
 
         # Coordenadas objetivo para disparar Robot 1 (respecto a Tag 1)
-        self.zona_r1 = {'x': 2.0, 'y': 44.0} 
+        self.zona_r1 = {'x': 8.0, 'y': 49.0} 
         
         # Coordenadas objetivo para disparar Robot 2 (respecto a Tag 2)
-        self.zona_r2 = {'x': 20.0, 'y': -15.0}
+        self.zona_r2 = {'x': 2.0, 'y': 47.0}
 
         # Cargar parámetros
         try:
@@ -123,6 +123,7 @@ class AprilTagToROS2(Node):
         self.pub_objects.publish(msg)
 
         # ### NUEVO: Verificar zona para activar el robot
+        print(f"x={x_cm}cm , y = {y_cm}cm")
         self.check_and_trigger_zone(base_id, x_cm, y_cm)
 
     def process_frame(self, frame):
@@ -205,7 +206,10 @@ def main():
     rclpy.init()
     node = AprilTagToROS2()
     cap = cv2.VideoCapture(0) # Asegúrate que el índice de cámara sea correcto
-    alfa = 0.7; beta = -10
+    #0 coneccion a puerto directo
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+    alfa = 0.5; beta = 0
 
     try:
         while rclpy.ok():

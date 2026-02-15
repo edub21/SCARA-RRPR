@@ -1,12 +1,12 @@
 camera_matrix:
   cols: 3
   data:
-  - 528.8599389107857
+  - 1057.7198    # (1586.57 * 0.6666) Focal x
   - 0.0
-  - 327.46999213652776
+  - 654.9399     # (982.40 * 0.6666)  Centro óptico x
   - 0.0
-  - 703.8215579847388
-  - 205.20918687740345
+  - 1055.7323    # (1583.59 * 0.6666) Focal y
+  - 307.8137     # (461.72 * 0.6666)  Centro óptico y
   - 0.0
   - 0.0
   - 1.0
@@ -21,5 +21,5 @@ distortion_coefficients:
   - -0.07720857888104336
   rows: 1
 distortion_model: plumb_bob
-image_height: 480
-image_width: 640
+image_height: 720
+image_width: 1280

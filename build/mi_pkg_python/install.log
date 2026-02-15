@@ -16,6 +16,7 @@
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones/__init__.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones/action_server.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/prueba_publicador.py
+/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/orientacion_juntas_Scara2.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/orientacion_juntas.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/puente_mqtt_ros2.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/set.py
@@ -43,6 +44,7 @@
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones/__pycache__/__init__.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones/__pycache__/action_server.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/prueba_publicador.cpython-310.pyc
+/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/orientacion_juntas_Scara2.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/orientacion_juntas.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/puente_mqtt_ros2.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/set.cpython-310.pyc
@@ -81,6 +83,7 @@
 /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python/p_fsm
 /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python/p_mega
 /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python/p_orientacion2juntas
+/home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python/p_orientacion2juntasSCARA2
 /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python/p_prueba
 /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python/p_puente
 /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python/p_set

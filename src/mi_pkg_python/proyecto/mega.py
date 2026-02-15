@@ -15,33 +15,30 @@ class ScaraDriver(Node):
         self.arduino = None
         self.conectar_arduino()
 
-        # Posición actual en GRADOS
         self.last_pos_deg = {
             'ra1': {'j1': 0.0, 'j2': 0.0},
             'ra2': {'j1': 0.0, 'j2': 0.0}
         }
         
         self.current_cmd = {
-            'ra1': [0.0, 0.0, 90, 90, 0], 
-            'ra2': [0.0, 0.0, 90, 90, 0]
+            # j1_rel, j2_rel, z_servo, orient_servo, valve
+            'ra1': [0.0, 0.0, 90.0, 90.0, 0], 
+            'ra2': [0.0, 0.0, 90.0, 90.0, 0]
         }
 
         self.robot_moving = False
         self.pending_update = False
 
         for ns in ['ra1', 'ra2']:
-            # Movimiento normal
             self.create_subscription(Float32MultiArray, f'/{ns}/joint_goals', lambda m, n=ns: self.cb_goal(m, n), 10)
-            # Control de válvula
             self.create_subscription(UInt8, f'/{ns}/valve_cmd', lambda m, n=ns: self.cb_valve(m, n), 10)
-            # NUEVO: Sincronización forzada (Set Pose) sin mover motores
             self.create_subscription(Float32MultiArray, f'/{ns}/set_pose', lambda m, n=ns: self.cb_set_pose(m, n), 10)
             
         self.pub_state_ra1 = self.create_publisher(UInt8, '/ra1/motion_state', 10)
         self.pub_state_ra2 = self.create_publisher(UInt8, '/ra2/motion_state', 10)
 
         self.timer = self.create_timer(0.05, self.control_loop)
-        self.get_logger().info("Driver SCARA Listo con SetPose.")
+        self.get_logger().info("Driver SCARA Listo con Orientación dinámica.")
 
     def conectar_arduino(self):
         try:
@@ -54,10 +51,8 @@ class ScaraDriver(Node):
     def rad2deg(self, rad):
         return rad * (180.0 / math.pi)
 
-    # NUEVA FUNCIÓN: Actualiza la memoria del driver sin mover el robot
     def cb_set_pose(self, msg, ns):
         try:
-            # msg viene en radianes desde la visión -> Convertir a grados
             j1_deg = self.rad2deg(msg.data[0])
             j2_deg = self.rad2deg(msg.data[1])
             
@@ -72,7 +67,6 @@ class ScaraDriver(Node):
             t_j1 = self.rad2deg(msg.data[0])
             t_j2 = self.rad2deg(msg.data[1])
             
-            # Cálculo relativo: Destino - Origen
             rel_j1 = t_j1 - self.last_pos_deg[ns]['j1']
             rel_j2 = t_j2 - self.last_pos_deg[ns]['j2']
             
@@ -80,11 +74,17 @@ class ScaraDriver(Node):
             self.last_pos_deg[ns]['j2'] = t_j2
 
             z_req = msg.data[2]
-            servo_z = 180 if z_req > 0.5 else 0 
+            servo_z = 180 if z_req > 0.5 else -90 
 
             self.current_cmd[ns][0] = rel_j1
             self.current_cmd[ns][1] = rel_j2
             self.current_cmd[ns][2] = servo_z 
+            
+            # NUEVO: Guardar la orientación enviada por el FSM
+            if len(msg.data) >= 4:
+                self.current_cmd[ns][3] = msg.data[3]
+            else:
+                self.current_cmd[ns][3] = 90.0
             
             self.pending_update = True
         except Exception as e:
@@ -98,14 +98,16 @@ class ScaraDriver(Node):
         if not self.arduino: return
         c1 = self.current_cmd['ra1']
         c2 = self.current_cmd['ra2']
+        
+        # NUEVO: Se envía c1[3] y c2[3] correspondientes a la orientación, en lugar del '90' estático
         datos = [
-            c1[0], c1[1], c1[2], 90, c1[4], 
-            c2[0], c2[1], c2[2], 90, c2[4]
+            c1[0], c1[1], c1[2], c1[3], c1[4], 
+            c2[0], c2[1], c2[2], c2[3], c2[4]
         ]
         linea = ",".join(map(str, datos)) + "\n"
         self.arduino.write(linea.encode('utf-8'))
         
-        # Reset incrementos
+        # Reset de los pasos relativos
         self.current_cmd['ra1'][0] = 0.0; self.current_cmd['ra1'][1] = 0.0
         self.current_cmd['ra2'][0] = 0.0; self.current_cmd['ra2'][1] = 0.0
 
