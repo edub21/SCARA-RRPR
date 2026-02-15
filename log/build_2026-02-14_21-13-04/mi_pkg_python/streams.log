@@ -1,0 +1,41 @@
+[0.615s] Invoking command in '/home/edub/ros2_ws/src/mi_pkg_python': PYTHONPATH=/home/edub/ros2_ws/build/mi_pkg_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_pkg_python build --build-base /home/edub/ros2_ws/build/mi_pkg_python/build install --record /home/edub/ros2_ws/build/mi_pkg_python/install.log --single-version-externally-managed install_data
+[0.814s] running egg_info
+[0.815s] writing ../../build/mi_pkg_python/mi_pkg_python.egg-info/PKG-INFO
+[0.815s] writing dependency_links to ../../build/mi_pkg_python/mi_pkg_python.egg-info/dependency_links.txt
+[0.815s] writing entry points to ../../build/mi_pkg_python/mi_pkg_python.egg-info/entry_points.txt
+[0.815s] writing requirements to ../../build/mi_pkg_python/mi_pkg_python.egg-info/requires.txt
+[0.816s] writing top-level names to ../../build/mi_pkg_python/mi_pkg_python.egg-info/top_level.txt
+[0.818s] reading manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'
+[0.819s] writing manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'
+[0.819s] running build
+[0.819s] running build_py
+[0.821s] running install
+[0.821s] running install_lib
+[0.823s] running install_data
+[0.823s] running install_egg_info
+[0.826s] removing '/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python-0.0.0-py3.10.egg-info' (and everything under it)
+[0.829s] Copying ../../build/mi_pkg_python/mi_pkg_python.egg-info to /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python-0.0.0-py3.10.egg-info
+[0.829s] running install_scripts
+[0.851s] Installing 0_tf2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.851s] Installing 0_urdf_pub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.851s] Installing 0_urdf_sub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.851s] Installing action_cliente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.851s] Installing action_servidor script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.851s] Installing apriltag_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.851s] Installing apriltag_2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.852s] Installing cliente_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.852s] Installing p_fsm script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.852s] Installing p_mega script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.852s] Installing p_orientacion2juntas script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.853s] Installing p_orientacion2juntasSCARA2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.853s] Installing p_prueba script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.853s] Installing p_puente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.853s] Installing p_set script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.854s] Installing p_vision2riz script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.854s] Installing publicador1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.854s] Installing puente_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.854s] Installing servidor_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.854s] Installing suscriptor1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.854s] Installing urdf_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.855s] writing list of installed files to '/home/edub/ros2_ws/build/mi_pkg_python/install.log'
+[0.882s] Invoked command in '/home/edub/ros2_ws/src/mi_pkg_python' returned '0': PYTHONPATH=/home/edub/ros2_ws/build/mi_pkg_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_pkg_python build --build-base /home/edub/ros2_ws/build/mi_pkg_python/build install --record /home/edub/ros2_ws/build/mi_pkg_python/install.log --single-version-externally-managed install_data

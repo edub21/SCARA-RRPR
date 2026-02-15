@@ -25,13 +25,13 @@ class AprilTagToROS2(Node):
 
         # ### NUEVO: Configuración de Zonas de Detección (Pick Zones)
         # Distancia configurable (radio de tolerancia en cm)
-        self.distancia_tolerancia = 2.0 
+        self.distancia_tolerancia = 3.0 
 
         # Coordenadas objetivo para disparar Robot 1 (respecto a Tag 1)
-        self.zona_r1 = {'x': 8.0, 'y': 49.0} 
+        self.zona_r1 = {'x': 5.0, 'y': 44.0} 
         
         # Coordenadas objetivo para disparar Robot 2 (respecto a Tag 2)
-        self.zona_r2 = {'x': 2.0, 'y': 47.0}
+        self.zona_r2 = {'x': 3.0, 'y': 53.0}
 
         # Cargar parámetros
         try:
@@ -190,13 +190,15 @@ class AprilTagToROS2(Node):
             if 21 in tag_dict:
                 T_21_2 = self.get_relative_transform(tag_dict[2], tag_dict[21])
                 js2.name.append('r2_brazo_joint')
-                js2.position.append(float(self.get_yaw_diff(T_21_2)))
+                # AÑADIDO EL SIGNO MENOS AQUÍ
+                js2.position.append(float(-self.get_yaw_diff(T_21_2)))
 
             if 22 in tag_dict and 21 in tag_dict:
                 T_22_2 = self.get_relative_transform(tag_dict[21], tag_dict[22])
                 z_diff = T_22_2[2, 3] - 0.15
                 js2.name.extend(['r2_antebrazo_joint', 'r2_efector_joint'])
-                js2.position.extend([float(self.get_yaw_diff(T_22_2)), float(z_diff)])
+                # AÑADIDO EL SIGNO MENOS AQUÍ TAMBIÉN
+                js2.position.extend([float(-self.get_yaw_diff(T_22_2)), float(z_diff)])
 
             if js2.name: self.pub_r2.publish(js2)
 
@@ -205,9 +207,14 @@ class AprilTagToROS2(Node):
 def main():
     rclpy.init()
     node = AprilTagToROS2()
-    cap = cv2.VideoCapture(2) # Asegúrate que el índice de cámara sea correcto
+    cap = cv2.VideoCapture(0) # Asegúrate que el índice de cámara sea correcto
     #0 coneccion a puerto directo
-    
+    # Desactivar el enfoque automático (0 para OFF, 1 para ON)
+    cap.set(cv2.CAP_PROP_AUTOFOCUS, 0)
+
+    # Establecer un valor de enfoque manual (el rango varía según el modelo, suele ser 0-255)
+    # Para AprilTags, busca un valor donde el código se vea nítido a la distancia de trabajo
+    cap.set(cv2.CAP_PROP_FOCUS, 60)
     alfa = 0.5; beta = 0
 
     try:
