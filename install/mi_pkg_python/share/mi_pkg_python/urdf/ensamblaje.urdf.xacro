@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="ensamblaje_doble">
 
-  <xacro:property name="p1" value="robot1_"/>
-  <xacro:property name="p2" value="robot2_"/>
+  <xacro:property name="p1" value="r1_"/>
+  <xacro:property name="p2" value="r2_"/>
+
+  <xacro:property name="altura_montaje" value="0.1"/> 
+
 
   <link name="world"/>
 
-  <joint name="world_to_robot1" type="fixed">
+  <joint name="world_to_r1" type="fixed">
     <parent link="world"/>
     <child link="${p1}base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 ${altura_montaje}" rpy="0 0 0"/>
   </joint>
 
-  <joint name="world_to_robot2" type="fixed">
+  <joint name="world_to_r2" type="fixed">
     <parent link="world"/>
     <child link="${p2}base_link"/>
-    <origin xyz="0 0.63 0" rpy="0 0 0"/>
+    <origin xyz="0 0.63 ${altura_montaje}" rpy="0 0 0"/>
   </joint>
-
 
   <link name="${p1}base_link">
     <inertial>
@@ -130,7 +132,6 @@
     <axis xyz="0 0 1"/>
     <limit lower="-0.15" upper="0.15" effort="0" velocity="0.05"/>
   </joint>
-
 
   <link name="${p2}base_link">
     <inertial>

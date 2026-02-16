@@ -29,6 +29,7 @@ proyecto/__init__.py
 proyecto/aprilCI.py
 proyecto/driver_scara.py
 proyecto/fsm.py
+proyecto/medicion.py
 proyecto/mega.py
 proyecto/orientacion_juntas.py
 proyecto/orientacion_juntas_Scara2.py
