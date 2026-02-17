@@ -1,0 +1,50 @@
+[0.632s] Invoking command in '/home/edub/ros2_ws/src/mi_pkg_python': PYTHONPATH=/home/edub/ros2_ws/build/mi_pkg_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_pkg_python build --build-base /home/edub/ros2_ws/build/mi_pkg_python/build install --record /home/edub/ros2_ws/build/mi_pkg_python/install.log --single-version-externally-managed install_data
+[0.844s] running egg_info
+[0.845s] writing ../../build/mi_pkg_python/mi_pkg_python.egg-info/PKG-INFO
+[0.845s] writing dependency_links to ../../build/mi_pkg_python/mi_pkg_python.egg-info/dependency_links.txt
+[0.846s] writing entry points to ../../build/mi_pkg_python/mi_pkg_python.egg-info/entry_points.txt
+[0.846s] writing requirements to ../../build/mi_pkg_python/mi_pkg_python.egg-info/requires.txt
+[0.846s] writing top-level names to ../../build/mi_pkg_python/mi_pkg_python.egg-info/top_level.txt
+[0.849s] reading manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'
+[0.850s] writing manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'
+[0.850s] running build
+[0.850s] running build_py
+[0.852s] copying proyecto/orientacion_juntas_Scara2.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto
+[0.852s] copying proyecto/orientacion_juntas.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto
+[0.852s] copying proyecto/fsm.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto
+[0.852s] running install
+[0.852s] running install_lib
+[0.854s] copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/orientacion_juntas_Scara2.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto
+[0.854s] copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/orientacion_juntas.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto
+[0.854s] copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/fsm.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto
+[0.856s] byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/orientacion_juntas_Scara2.py to orientacion_juntas_Scara2.cpython-310.pyc
+[0.858s] byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/orientacion_juntas.py to orientacion_juntas.cpython-310.pyc
+[0.860s] byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/fsm.py to fsm.cpython-310.pyc
+[0.863s] running install_data
+[0.863s] running install_egg_info
+[0.865s] removing '/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python-0.0.0-py3.10.egg-info' (and everything under it)
+[0.867s] Copying ../../build/mi_pkg_python/mi_pkg_python.egg-info to /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python-0.0.0-py3.10.egg-info
+[0.868s] running install_scripts
+[0.888s] Installing 0_tf2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing 0_urdf_pub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing 0_urdf_sub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing action_cliente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing action_servidor script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing apriltag_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing apriltag_2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing cliente_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing p_fsm script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing p_mega script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing p_orientacion2juntas script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing p_orientacion2juntasSCARA2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.889s] Installing p_prueba script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.890s] Installing p_puente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.890s] Installing p_set script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.891s] Installing p_vision2riz script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.891s] Installing publicador1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.891s] Installing puente_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.891s] Installing servidor_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.891s] Installing suscriptor1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.891s] Installing urdf_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python
+[0.891s] writing list of installed files to '/home/edub/ros2_ws/build/mi_pkg_python/install.log'
+[0.915s] Invoked command in '/home/edub/ros2_ws/src/mi_pkg_python' returned '0': PYTHONPATH=/home/edub/ros2_ws/build/mi_pkg_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_pkg_python build --build-base /home/edub/ros2_ws/build/mi_pkg_python/build install --record /home/edub/ros2_ws/build/mi_pkg_python/install.log --single-version-externally-managed install_data

@@ -3,55 +3,69 @@ import yaml
 import numpy as np
 from pupil_apriltags import Detector
 
-# 1. Cargar parámetros de calibración desde el YAML
+# 1. Cargar parámetros de calibración
 with open("/home/edub/ros2_ws/src/mi_pkg_python/proyecto/camera_calibration.yaml", 'r') as f:
     calib_data = yaml.safe_load(f)
 
-# Extraer matrices (ajusta las llaves 'camera_matrix' y 'distortion_coefficients' según tu YAML)
-K = np.array(calib_data['camera_matrix'])
-D = np.array(calib_data['distortion_coefficients'])
+# CORRECCIÓN: Acceder a ['data'] y reestructurar la matriz
+# Para K (Camera Matrix) que es 3x3
+raw_K = calib_data['camera_matrix']['data']
+K = np.array(raw_K, dtype=np.float64).reshape((3, 3))
+
+# Para D (Distortion Coefficients) que suele ser 1x5 o 1x8
+raw_D = calib_data['distortion_coefficients']['data']
+D = np.array(raw_D, dtype=np.float64)
+
+print("Matrices cargadas correctamente:")
+print(f"K:\n{K}")
+print(f"D: {D}")
 
 # 2. Configurar detector y cámara
 at_detector = Detector(families='tag36h11')
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
-# Obtener dimensiones para la rectificación
+# Obtener dimensiones iniciales
 ret, frame = cap.read()
+if not ret:
+    print("No se pudo acceder a la cámara")
+    exit()
 h, w = frame.shape[:2]
 
-# Pre-calcular los mapas de rectificación para ahorrar procesamiento en el loop
-# Esto elimina la distorsión de "barril" del ojo de pez
-new_K, _ = cv2.getOptimalNewCameraMatrix(K, D, (w, h), 1, (w, h))
+# Pre-calcular mapas de rectificación
+# El parámetro '1' en getOptimalNewCameraMatrix mantiene todos los píxeles (puede dejar bordes negros)
+new_K, roi = cv2.getOptimalNewCameraMatrix(K, D, (w, h), 1, (w, h))
 map1, map2 = cv2.initUndistortRectifyMap(K, D, None, new_K, (w, h), cv2.CV_16SC2)
 
-print("Buscando AprilTag ID 1 con corrección de imagen...")
+print("Buscando AprilTags ID 1 y 2...")
 
 while True:
     ret, frame = cap.read()
     if not ret: break
 
-    # 3. APLICAR CORRECCIÓN OJO DE PEZ
-    # Remapeamos los píxeles para "estirar" la imagen y que las líneas sean rectas
+    # Aplicar corrección de lente (Undistort)
     frame_undistorted = cv2.remap(frame, map1, map2, interpolation=cv2.INTER_LINEAR)
 
-    # Detección sobre la imagen corregida
+    # Detección
     gray = cv2.cvtColor(frame_undistorted, cv2.COLOR_BGR2GRAY)
     tags = at_detector.detect(gray)
 
     for tag in tags:
-        if tag.tag_id == 1:
-            # Imprimir datos corregidos
-            print(f"ID 1 detectado en Centro: {tag.center}")
+        # Filtrar solo por ID 1 y ID 2
+        if tag.tag_id in [1, 2]:
+            print(f"--- Tag Detectado: ID {tag.tag_id} ---")
+            print(f"Centro: {tag.center}")
+            print(f"Esquinas: {tag.corners}")
+            print(f"Error de decisión: {tag.decision_margin}")
             
-            # Dibujar visualización
-            for i in range(4):
-                p1 = tuple(tag.corners[i].astype(int))
-                p2 = tuple(tag.corners[(i + 1) % 4].astype(int))
-                cv2.line(frame_undistorted, p1, p2, (0, 255, 0), 2)
-            cv2.putText(frame_undistorted, "TAG 1", tuple(tag.center.astype(int)), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+            # Dibujar en pantalla
+            pts = tag.corners.reshape((-1, 1, 2)).astype(np.int32)
+            cv2.polylines(frame_undistorted, [pts], True, (0, 255, 0), 2)
+            cv2.putText(frame_undistorted, f"ID: {tag.tag_id}", tuple(tag.center.astype(int)), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
 
-    cv2.imshow("Imagen Corregida (Undistorted)", frame_undistorted)
+    cv2.imshow("Vision Corregida - Medicion", frame_undistorted)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break

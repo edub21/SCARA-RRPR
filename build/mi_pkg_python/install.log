@@ -27,6 +27,7 @@
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/driver_scara.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/aprilCI.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/medicion.py
+/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/medicion 2.py
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/__pycache__/apriltag_2.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/__pycache__/apriltag_0.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/__pycache__/0_tf2.cpython-310.pyc
@@ -56,6 +57,7 @@
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/driver_scara.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/aprilCI.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/medicion.cpython-310.pyc
+/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__pycache__/medicion 2.cpython-310.pyc
 /home/edub/ros2_ws/install/mi_pkg_python/share/ament_index/resource_index/packages/mi_pkg_python
 /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/package.xml
 /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/ensamblaje.urdf
