@@ -22,7 +22,7 @@ print(f"D: {D}")
 
 # 2. Configurar detector y cámara
 at_detector = Detector(families='tag36h11')
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 

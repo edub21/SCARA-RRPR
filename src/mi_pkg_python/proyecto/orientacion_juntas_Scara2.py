@@ -113,9 +113,10 @@ class AprilTagToROS2(Node):
         msg = ObjDetect()
         msg.id, msg.posx, msg.posy = int(tag_obj.tag_id), float(x_cm), float(y_cm)
         msg.orden, msg.dist, msg.orient = int((tag_obj.tag_id % 10) + 1), float(distancia), float(orientacion)
-        
+        #print(f"x = {x_cm}, y = {y_cm}")
         self.pub_objects.publish(msg)
         self.check_and_trigger_zone(base_id, x_cm, y_cm)
+        
 
     def solve_tag_pose(self, corners, size):
         s = size / 2.0
@@ -155,40 +156,60 @@ class AprilTagToROS2(Node):
             if 30 <= tid < 40: self.process_and_publish_object(1, tag, tag_dict)
             if 40 <= tid < 50: self.process_and_publish_object(2, tag, tag_dict)
 
-        # Articulaciones Robot 1
+        # --- ARTICULACIONES R1 ---
         if 1 in tag_dict:
             js1 = JointState()
             js1.header.stamp = self.get_clock().now().to_msg()
+            
             if 11 in tag_dict:
                 T_11_1 = self.get_relative_transform(tag_dict[1], tag_dict[11])
+                yaw1 = self.get_yaw_diff(T_11_1)
                 js1.name.append('r1_brazo_joint')
-                js1.position.append(float(-self.get_yaw_diff(T_11_1)))
+                js1.position.append(float(-yaw1))
+                
+                # Impresión de la primera articulación
+                print(f"[R1] Brazo (1->11): {((yaw1)*180/3.1415):.2f}°")
+
                 if 12 in tag_dict:
-                    T_12_1 = self.get_relative_transform(tag_dict[11], tag_dict[12]) 
+                    T_12_1 = self.get_relative_transform(tag_dict[11], tag_dict[12])
+                    yaw2 = self.get_yaw_diff(T_12_1)
                     js1.name.extend(['r1_antebrazo_joint', 'r1_efector_joint'])
-                    js1.position.extend([float(-self.get_yaw_diff(T_12_1)), float(T_12_1[2, 3] + 0.215)])
+                    js1.position.extend([float(-yaw2), float(T_12_1[2, 3] + 0.1)])
+                    
+                    # Impresión de la segunda articulación
+                    print(f"[R1] Antebrazo (11->12): {((yaw2)*180/3.1415):.2f}°")
+            
             if js1.name: self.pub_r1.publish(js1)
 
-        # Articulaciones Robot 2
+        # --- ARTICULACIONES R2 ---
         if 2 in tag_dict:
             js2 = JointState()
             js2.header.stamp = self.get_clock().now().to_msg()
+            
             if 21 in tag_dict:
                 T_21_2 = self.get_relative_transform(tag_dict[2], tag_dict[21])
+                yaw1_r2 = self.get_yaw_diff(T_21_2)
                 js2.name.append('r2_brazo_joint')
-                js2.position.append(float(-self.get_yaw_diff(T_21_2)))
+                js2.position.append(float(-yaw1_r2))
+                
+                print(f"[R2] Brazo (2->21): {((yaw1_r2)*180/3.1415):.2f}°")
+
                 if 22 in tag_dict:
                     T_22_2 = self.get_relative_transform(tag_dict[21], tag_dict[22])
+                    yaw2_r2 = self.get_yaw_diff(T_22_2)
                     js2.name.extend(['r2_antebrazo_joint', 'r2_efector_joint'])
-                    js2.position.extend([float(-self.get_yaw_diff(T_22_2)), float(T_22_2[2, 3] + 0.20)])
+                    js2.position.extend([float(-yaw2_r2), float(T_22_2[2, 3])])
+                    
+                    print(f"[R2] Antebrazo (21->22): {((yaw2_r2)*180/3.1415):.2f}°")
+            
             if js2.name: self.pub_r2.publish(js2)
-
+            
         return undistorted
 
 def main():
     rclpy.init()
     node = AprilTagToROS2()
-    cap = cv2.VideoCapture(0) 
+    cap = cv2.VideoCapture(2) 
     cap.set(cv2.CAP_PROP_AUTOFOCUS, 0)
     cap.set(cv2.CAP_PROP_FOCUS, 25)
     

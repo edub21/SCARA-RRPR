@@ -19,20 +19,18 @@ class AprilTagToROS2(Node):
         self.pub_objects = self.create_publisher(ObjDetect, '/detected_objects', 10)
         self.pub_trigger = self.create_publisher(Int32, '/sistema/trigger', 10)
 
-        # --- NUEVOS VALORES PROMEDIADOS PARA TAG 1 ---
         self.default_tag_1_corners = np.array([
-            [869.55, 444.24],
-            [871.12, 507.14],
-            [935.16, 502.85],
-            [934.84, 439.88]
+            [ 941.5809 , 439.3873],
+            [ 943.7673 , 503.0117],
+            [1009.4723 , 497.3083],
+            [1007.6535 , 433.6404]
         ], dtype=np.float32)
 
         self.distancia_tolerancia = 4.0 
-        self.zona_r1 = {'x': 0.0, 'y': 51.0} 
-        self.zona_r2 = {'x': -2.0, 'y': 53.0}
+        self.zona_r1 = {'x': 4.0, 'y': 50.3} 
+        self.zona_r2 = {'x': 0.0, 'y': 51.0}
 
         try:
-            # Asegúrate de que la ruta al YAML sea la correcta
             with open("/home/edub/ros2_ws/src/mi_pkg_python/proyecto/camera_calibration.yaml", 'r') as f:
                 calib_data = yaml.safe_load(f)
             self.K = np.array(calib_data['camera_matrix']['data']).reshape(3, 3)
@@ -44,12 +42,12 @@ class AprilTagToROS2(Node):
 
         self.at_detector = Detector(families='tag36h11')
         self.tag_size_base = 0.045 
-        self.tag_size_large = 0.10 # 10cm para bases
+        self.tag_size_large = 0.10 
         
         self.tag_history = {}
         self.history_size = 3 
         
-        self.get_logger().info("Nodo iniciado: Tag 1 configurado con promedios reales.")
+        self.get_logger().info("Visión Iniciada: Enviando códigos combinados Base+Tag a la FSM.")
 
     class MockTag:
         def __init__(self, tag_id, R_mat, t_vec):
@@ -106,7 +104,10 @@ class AprilTagToROS2(Node):
         orientacion = self.get_yaw_diff(T_rel) 
         
         msg = ObjDetect()
-        msg.id, msg.posx, msg.posy = int(tag_obj.tag_id), float(x_cm), float(y_cm)
+        # NUEVO: ID combinado. Ej: Base 1 + Tag 45 = 145. Evita sobreescribir ángulos.
+        msg.id = int(base_id * 100 + tag_obj.tag_id)
+        msg.posx, msg.posy = float(x_cm), float(y_cm)
+        print(f" x = {x_cm:.1f} cm, y = {y_cm:.1f} cm, dist = {distancia:.1f} cm, orient = {orientacion:.2f} rad")
         msg.orden, msg.dist, msg.orient = int((tag_obj.tag_id % 10) + 1), float(distancia), float(orientacion)
         self.pub_objects.publish(msg)
 
@@ -115,12 +116,13 @@ class AprilTagToROS2(Node):
             dist_err = math.sqrt((x_cm - target['x'])**2 + (y_cm - target['y'])**2)
             if dist_err <= self.distancia_tolerancia:
                 t_msg = Int32()
-                t_msg.data = base_id
+                # El trigger también manda el ID combinado para dirigir la FSM
+                t_msg.data = int(base_id * 100 + tag_obj.tag_id)
                 self.pub_trigger.publish(t_msg)
 
     def process_frame(self, frame):
         h, w = frame.shape[:2]
-        newcameramtx, _ = cv2.getOptimalNewCameraMatrix(self.K, self.dist, (w, h), 1, (w, h))
+        newcameramtx, _ = cv2 .getOptimalNewCameraMatrix(self.K, self.dist, (w, h), 1, (w, h))
         undistorted = cv2.undistort(frame, self.K, self.dist, None, newcameramtx)
         gray = cv2.cvtColor(undistorted, cv2.COLOR_BGR2GRAY)
 
@@ -131,29 +133,24 @@ class AprilTagToROS2(Node):
         tag_dict = {tag.tag_id: tag for tag in tags}
         escala_compensacion = self.tag_size_large / self.tag_size_base
 
-        # --- FALLBACK TAG 1 ---
         if 1 not in tag_dict:
             r1, t1 = self.solve_tag_pose(self.default_tag_1_corners, self.tag_size_large)
             tag_dict[1] = self.MockTag(1, r1, t1)
             cv2.polylines(undistorted, [self.default_tag_1_corners.astype(np.int32)], True, (0, 0, 255), 2)
 
-        # Suavizado y escalado
         for tid, tag in tag_dict.items():
             if tid in [1, 2] and not isinstance(tag, self.MockTag):
                 tag.pose_t = tag.pose_t * escala_compensacion
             tag.pose_R, tag.pose_t = self.smooth_pose(tid, tag.pose_R, tag.pose_t)
 
-        # Procesamiento
         for tid, tag in tag_dict.items():
             rvec, _ = cv2.Rodrigues(tag.pose_R)
             cv2.drawFrameAxes(undistorted, self.K, self.dist, rvec, tag.pose_t, 0.05)
             
-            if 30 <= tid < 40 or tid == 8:
-                self.process_and_publish_object(1, tag, tag_dict, check_trigger=(tid != 8))
-            if 40 <= tid < 50 or tid == 9:
-                self.process_and_publish_object(2, tag, tag_dict, check_trigger=(tid != 9))
+            if (30 <= tid < 50) or tid in [8, 9]:
+                self.process_and_publish_object(1, tag, tag_dict, check_trigger=(tid not in [8, 9]))
+                self.process_and_publish_object(2, tag, tag_dict, check_trigger=(tid not in [8, 9]))
 
-        # --- ARTICULACIONES R1 ---
         if 1 in tag_dict:
             js1 = JointState()
             js1.header.stamp = self.get_clock().now().to_msg()
@@ -167,7 +164,6 @@ class AprilTagToROS2(Node):
                     js1.position.extend([float(-self.get_yaw_diff(T_12_1)), float(T_12_1[2, 3] + 0.1)])
             if js1.name: self.pub_r1.publish(js1)
 
-        # --- ARTICULACIONES R2 ---
         if 2 in tag_dict:
             js2 = JointState()
             js2.header.stamp = self.get_clock().now().to_msg()
@@ -180,13 +176,13 @@ class AprilTagToROS2(Node):
                     js2.name.extend(['r2_antebrazo_joint', 'r2_efector_joint'])
                     js2.position.extend([float(-self.get_yaw_diff(T_22_2)), float(T_22_2[2, 3])])
             if js2.name: self.pub_r2.publish(js2)
-
+            
         return undistorted
 
 def main():
     rclpy.init()
     node = AprilTagToROS2()
-    cap = cv2.VideoCapture(2)
+    cap = cv2.VideoCapture(0)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     
@@ -194,8 +190,8 @@ def main():
         while rclpy.ok():
             ret, frame = cap.read()
             if not ret: break
-            out = node.process_frame(cv2.convertScaleAbs(frame, alpha=0.8, beta=-50))
-            cv2.imshow("Deteccion - Backup Tag 1", out)
+            out = node.process_frame(cv2.convertScaleAbs(frame, alpha=1.0, beta=-50))
+            cv2.imshow("Deteccion - Dual Target", out)
             if cv2.waitKey(1) & 0xFF == ord('q'): break
     finally:
         cap.release()
@@ -203,5 +199,4 @@ def main():
         node.destroy_node()
         rclpy.shutdown()
 
-if __name__ == '__main__':
-    main()
+if __name__ == '__main__': main()
