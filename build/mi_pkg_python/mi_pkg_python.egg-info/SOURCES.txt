@@ -25,6 +25,7 @@ mi_pkg_python/publicador.py
 mi_pkg_python/puente_mqtt.py
 mi_pkg_python/suscriptor.py
 mi_pkg_python/urdf_mqtt.py
+proyecto/CuboPublisher.py
 proyecto/__init__.py
 proyecto/aprilCI.py
 proyecto/driver_scara.py
@@ -45,9 +46,12 @@ servicios/srv_servidor.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
+urdf/banda.urdf
 urdf/ensamblaje.urdf
 urdf/ensamblaje.urdf.xacro
 urdf/meshes/antebrazo_link.STL
+urdf/meshes/banda_base_link.STL
+urdf/meshes/banda_link.STL
 urdf/meshes/base_link.STL
 urdf/meshes/brazo_link.STL
 urdf/meshes/efector_link.STL

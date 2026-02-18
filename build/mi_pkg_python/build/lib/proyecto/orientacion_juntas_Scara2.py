@@ -23,10 +23,10 @@ class AprilTagToROS2(Node):
         # --- NUEVOS VALORES PROMEDIADOS ACTUALIZADOS (TAG ID 2) ---
         # Basados en tus últimos logs (Centro aprox [192.9, 145.2])
         self.default_tag_2_corners = np.array([
-            [227.905, 182.608], # Promedio Esquina 0
-            [230.235, 110.952], # Promedio Esquina 1
-            [157.391, 107.123], # Promedio Esquina 2
-            [155.688, 179.563]  # Promedio Esquina 3
+            [391.824, 219.146],
+            [387.124, 285.077],
+            [454.145, 290.579],
+            [458.705, 224.254]  # Promedio Esquina 3
         ], dtype=np.float32)
 
         # --- CONFIGURACIÓN DE ZONAS Y TOLERANCIAS ---
@@ -95,12 +95,14 @@ class AprilTagToROS2(Node):
         r = R.from_matrix(T_rel[:3, :3])
         return r.as_euler('xyz')[2]
 
-    def check_and_trigger_zone(self, base_id, x_cm, y_cm):
+# SOLUCIÓN: Recibe tag_id como parámetro
+    def check_and_trigger_zone(self, base_id, tag_id, x_cm, y_cm):
         target = self.zona_r1 if base_id == 1 else self.zona_r2
         dist_error = math.sqrt((x_cm - target['x'])**2 + (y_cm - target['y'])**2)
         if dist_error <= self.distancia_tolerancia:
             msg = Int32()
-            msg.data = base_id
+            # SOLUCIÓN: Empaqueta el ID correctamente (ej. base 2, tag 40 -> 240)
+            msg.data = (base_id * 100) + int(tag_id) 
             self.pub_trigger.publish(msg)
 
     def process_and_publish_object(self, base_id, tag_obj, tag_dict):
@@ -113,9 +115,11 @@ class AprilTagToROS2(Node):
         msg = ObjDetect()
         msg.id, msg.posx, msg.posy = int(tag_obj.tag_id), float(x_cm), float(y_cm)
         msg.orden, msg.dist, msg.orient = int((tag_obj.tag_id % 10) + 1), float(distancia), float(orientacion)
-        #print(f"x = {x_cm}, y = {y_cm}")
+        
         self.pub_objects.publish(msg)
-        self.check_and_trigger_zone(base_id, x_cm, y_cm)
+        #print(f"x={x_cm:.2f} cm, y={y_cm:.2f} cm, dist={distancia:.2f} cm, orient={math.degrees(orientacion):.1f}°")
+        # SOLUCIÓN: Agregamos tag_obj.tag_id a los parámetros
+        self.check_and_trigger_zone(base_id, tag_obj.tag_id, x_cm, y_cm)
         
 
     def solve_tag_pose(self, corners, size):
@@ -168,7 +172,7 @@ class AprilTagToROS2(Node):
                 js1.position.append(float(-yaw1))
                 
                 # Impresión de la primera articulación
-                print(f"[R1] Brazo (1->11): {((yaw1)*180/3.1415):.2f}°")
+                #print(f"[R1] Brazo (1->11): {((yaw1)*180/3.1415):.2f}°")
 
                 if 12 in tag_dict:
                     T_12_1 = self.get_relative_transform(tag_dict[11], tag_dict[12])
@@ -177,7 +181,10 @@ class AprilTagToROS2(Node):
                     js1.position.extend([float(-yaw2), float(T_12_1[2, 3] + 0.1)])
                     
                     # Impresión de la segunda articulación
-                    print(f"[R1] Antebrazo (11->12): {((yaw2)*180/3.1415):.2f}°")
+                    #print(f"[R1] Antebrazo (11->12): {((yaw2)*180/3.1415):.2f}°")
+                    x = 20 * np.cos(self.get_yaw_diff(T_11_1)) + 20 * np.cos(self.get_yaw_diff(T_11_1 + T_12_1))
+                    y = 20 * np.sin(self.get_yaw_diff(T_11_1)) + 20 * np.sin(self.get_yaw_diff(T_11_1 + T_12_1))
+                    print(f"x = {x} cm, y = {y} cm")
             
             if js1.name: self.pub_r1.publish(js1)
 
@@ -192,7 +199,6 @@ class AprilTagToROS2(Node):
                 js2.name.append('r2_brazo_joint')
                 js2.position.append(float(-yaw1_r2))
                 
-                print(f"[R2] Brazo (2->21): {((yaw1_r2)*180/3.1415):.2f}°")
 
                 if 22 in tag_dict:
                     T_22_2 = self.get_relative_transform(tag_dict[21], tag_dict[22])
@@ -200,7 +206,9 @@ class AprilTagToROS2(Node):
                     js2.name.extend(['r2_antebrazo_joint', 'r2_efector_joint'])
                     js2.position.extend([float(-yaw2_r2), float(T_22_2[2, 3])])
                     
-                    print(f"[R2] Antebrazo (21->22): {((yaw2_r2)*180/3.1415):.2f}°")
+                    x = 20 * np.cos(self.get_yaw_diff(T_21_2)) + 20 * np.cos(self.get_yaw_diff(T_21_2 + T_22_2))
+                    y = 20 * np.sin(self.get_yaw_diff(T_21_2)) + 20 * np.sin(self.get_yaw_diff(T_21_2 + T_22_2))
+                    print(f"x = {x} cm, y = {y} cm")
             
             if js2.name: self.pub_r2.publish(js2)
             

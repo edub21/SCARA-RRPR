@@ -64,37 +64,38 @@ class ScaraTaskFSM(Node):
         self.robots = {'ra1': RobotContext('ra1'), 'ra2': RobotContext('ra2')}
         
         self.coords = {
-            'ra1': {
+            'ra1': {# verdes
                 'home_coords': (20.0, 20.0), 
                 'approach_pick': (30.0, 10.0), 
-                'pick': (30.0, 0.0),
+                'pick': (30.0, 5.0),
                 'boxes': [
-                    (0.0 - 10.5, -26.5 - 5.0 , 90.0-25),   
-                    (0.0 - 10.0, -25.5 + 3.0 , 80.0),  
-                    (0.0 + 2.5, -27.5 - 7.5  , 90.0), 
-                    (0.0 + 8.0, -27.5 + 5.0  , 2.0) 
+                    (-1.5, -33.5, 45),     
+                    (-1.5, -23.5, 100), 
+                    (9.5, -33.5, 90), 
+                    (9.5, -23.5, 145)
                 ]
             },
-            'ra12': {
+            'ra12': { # rojas 
                 'home_coords': (20.0, 20.0), 
                 'approach_pick': (30.0, 10.0), 
-                'pick': (30.0, 0.0),
+                'pick': (30.0, 5.0),
                 'boxes': [
-                    (-30.0 , -20 , 90.0-25),   
-                    (-30.0 , -20 , 80.0),  
-                    (-30.0 , -20  , 90.0), 
-                    (-30.0 , -20   , 2.0) 
+                    (-1.5 - 25, -33.5, 0),     
+                    (-1.5 - 25, -23.5, 0), 
+                    (9.5 - 25, -33.5, 0), 
+                    (9.5 - 25, -23.5, 0)
+
                 ]
             },
             'ra2': {
                 'home_coords': (20.0, 20.0),
                 'approach_pick': (29.0, 5.0),
-                'pick': (29.0, 0.0),
+                'pick': (30.00, 6.0),
                 'boxes': [
-                    (2.0, -28.0, 55.0), 
-                    (2.0, -28.0, 55.0), 
-                    (2.0, -28.0, 55.0), 
-                    (2.0, -28.0, 55.0)
+                    (-3.0, -32.0, 50),     
+                    (-2.5, -22.5, 90), 
+                    (7.5, -32.0, 90), 
+                    (8, -23.0, 130)
                 ]
             }
         }
@@ -209,6 +210,7 @@ class ScaraTaskFSM(Node):
                     msg = Float32MultiArray(); msg.data = [math.radians(ctx.cam_q1), math.radians(ctx.cam_q2)]
                     self.pub_set_pose[ns].publish(msg)
                     ctx.init_calibrated = True; return 
+                self.pub_valve[ns].publish(UInt8(data=1))
                 self.send_cmd(ns, -90.0, 90.0, True)
                 ctx.waiting_done = True; ctx.seen_moving = False; ctx.step_start_time = time.time()
             elif self.check_done(ns, ctx, is_home=True):

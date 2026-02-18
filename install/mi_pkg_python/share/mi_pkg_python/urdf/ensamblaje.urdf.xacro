@@ -1,24 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ensamblaje_doble">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ensamblaje_doble_con_banda">
 
   <xacro:property name="p1" value="r1_"/>
   <xacro:property name="p2" value="r2_"/>
 
-  <xacro:property name="altura_montaje" value="0.1"/> 
-
+  <xacro:property name="altura_montaje" value="0.25"/> 
 
   <link name="world"/>
 
   <joint name="world_to_r1" type="fixed">
     <parent link="world"/>
     <child link="${p1}base_link"/>
-    <origin xyz="0 0 ${altura_montaje}" rpy="0 0 0"/>
+    <origin xyz="0.10 0 ${altura_montaje}" rpy="0 0 0"/>
   </joint>
 
   <joint name="world_to_r2" type="fixed">
     <parent link="world"/>
     <child link="${p2}base_link"/>
-    <origin xyz="0 0.63 ${altura_montaje}" rpy="0 0 0"/>
+    <origin xyz="0.10 0.63 ${altura_montaje}" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="world_to_banda" type="fixed">
+    <parent link="world"/>
+    <child link="banda_base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="banda_base_link">
+    <inertial>
+      <origin xyz="0.532375158645714 -0.00125118407977348 -0.0614188025075904" rpy="0 0 0" />
+      <mass value="3.53485764601871" />
+      <inertia ixx="0.010351026660149" ixy="-1.61847933564091E-05" ixz="-8.83817332567959E-07"
+               iyy="0.341234100404499" iyz="4.24067313651221E-07" izz="0.35088951437036" />
+    </inertial>
+    <visual>
+      <origin xyz="0.4 -0.2 0" rpy="0 0 1.5708" />
+      <geometry>
+        <mesh filename="package://mi_pkg_python/urdf/meshes/banda_base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.592156862745098 0.117647058823529 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mi_pkg_python/urdf/meshes/banda_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="banda_link">
+    <inertial>
+      <origin xyz="0.54526 -1.9429E-16 0" rpy="0 0 0" />
+      <mass value="0.5909" />
+      <inertia ixx="0.00061358" ixy="-1.2903E-17" ixz="1.5247E-19"
+               iyy="0.059266" iyz="-1.2783E-20" izz="0.059878" />
+    </inertial>
+    <visual>
+      <origin xyz="0.4 -0.2 0" rpy="0 0 1.5708" />
+      <geometry>
+        <mesh filename="package://mi_pkg_python/urdf/meshes/banda_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.59216 0.11765 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mi_pkg_python/urdf/meshes/banda_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="banda_joint" type="prismatic">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="banda_base_link" />
+    <child link="banda_link" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="0" effort="0" velocity="0" />
   </joint>
 
   <link name="${p1}base_link">

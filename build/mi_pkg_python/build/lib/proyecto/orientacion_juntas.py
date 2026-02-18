@@ -20,14 +20,14 @@ class AprilTagToROS2(Node):
         self.pub_trigger = self.create_publisher(Int32, '/sistema/trigger', 10)
 
         self.default_tag_1_corners = np.array([
-            [ 941.5809 , 439.3873],
-            [ 943.7673 , 503.0117],
-            [1009.4723 , 497.3083],
-            [1007.6535 , 433.6404]
+            [935.1003,436.5598],
+            [928.6178,496.6125],
+            [990.7722,497.4378],
+            [998.4216,437.2365]
         ], dtype=np.float32)
 
-        self.distancia_tolerancia = 4.0 
-        self.zona_r1 = {'x': 4.0, 'y': 50.3} 
+        self.distancia_tolerancia = 2.0 
+        self.zona_r1 = {'x': 8.0, 'y': 58.3} 
         self.zona_r2 = {'x': 0.0, 'y': 51.0}
 
         try:
@@ -162,6 +162,11 @@ class AprilTagToROS2(Node):
                     T_12_1 = self.get_relative_transform(tag_dict[11], tag_dict[12])
                     js1.name.extend(['r1_antebrazo_joint', 'r1_efector_joint'])
                     js1.position.extend([float(-self.get_yaw_diff(T_12_1)), float(T_12_1[2, 3] + 0.1)])
+                    x = 20 * np.cos(self.get_yaw_diff(T_11_1)) + 20 * np.cos(self.get_yaw_diff(T_11_1 + T_12_1))
+                    y = 20 * np.sin(self.get_yaw_diff(T_11_1)) + 20 * np.sin(self.get_yaw_diff(T_11_1 + T_12_1))
+                    #print(f"x = {x} cm, y = {y} cm")
+                    print(f"1 = {self.get_yaw_diff(T_11_1)*180/3.1415} deg, 2 = {self.get_yaw_diff(T_12_1)*180/3.1415} cm")
+
             if js1.name: self.pub_r1.publish(js1)
 
         if 2 in tag_dict:
@@ -175,6 +180,9 @@ class AprilTagToROS2(Node):
                     T_22_2 = self.get_relative_transform(tag_dict[21], tag_dict[22])
                     js2.name.extend(['r2_antebrazo_joint', 'r2_efector_joint'])
                     js2.position.extend([float(-self.get_yaw_diff(T_22_2)), float(T_22_2[2, 3])])
+                    x = 20 * np.cos(self.get_yaw_diff(T_21_2)) + 20 * np.cos(self.get_yaw_diff(T_21_2 + T_22_2))
+                    y = 20 * np.sin(self.get_yaw_diff(T_21_2)) + 20 * np.sin(self.get_yaw_diff(T_21_2 + T_22_2))
+                    #print(f"x = {x} cm, y = {y} cm")
             if js2.name: self.pub_r2.publish(js2)
             
         return undistorted
@@ -182,7 +190,7 @@ class AprilTagToROS2(Node):
 def main():
     rclpy.init()
     node = AprilTagToROS2()
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     
@@ -190,7 +198,7 @@ def main():
         while rclpy.ok():
             ret, frame = cap.read()
             if not ret: break
-            out = node.process_frame(cv2.convertScaleAbs(frame, alpha=1.0, beta=-50))
+            out = node.process_frame(cv2.convertScaleAbs(frame, alpha=1.2, beta=-120))
             cv2.imshow("Deteccion - Dual Target", out)
             if cv2.waitKey(1) & 0xFF == ord('q'): break
     finally:

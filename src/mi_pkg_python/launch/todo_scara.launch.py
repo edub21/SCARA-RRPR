@@ -33,6 +33,14 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Cubo Publisher (Nueva)
+    nodo_cubo = Node(
+        package=pkg_name,
+        executable='cubo_publisher',
+        name='nodo_cubo_publisher',
+        output='screen'
+    )
+
     # Driver Arduino
     nodo_arduino = Node(
         package=pkg_name,
@@ -57,7 +65,8 @@ def generate_launch_description():
         actions=[
             LogInfo(msg=">> Iniciando SISTEMA DE VISIÓN (Cámara 1 y 2)..."),
             nodo_camara_1,
-            nodo_camara_2
+            nodo_camara_2,
+            nodo_cubo
         ]
     )
 

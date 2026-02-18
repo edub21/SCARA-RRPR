@@ -4,12 +4,22 @@ from launch.substitutions import Command
 from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import PathJoinSubstitution
 
+# --- IMPORT NUEVO Y NECESARIO ---
+from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
+    # 1. URDF de los SCARAs
     xacro_file = PathJoinSubstitution([
         FindPackageShare("mi_pkg_python"),
         "urdf",
         "ensamblaje.urdf.xacro"
+    ])
+
+    # 2. URDF de la Banda Transportadora
+    banda_file = PathJoinSubstitution([
+        FindPackageShare("mi_pkg_python"),
+        "urdf",
+        "banda.urdf" 
     ])
 
     # --- Robot 1 (prefijo r1_) ---
@@ -22,7 +32,8 @@ def generate_launch_description():
         namespace="r1",
         output="screen",
         parameters=[
-            {"robot_description": robot1_description},
+            # --- SE APLICA EL ParameterValue AQUÍ ---
+            {"robot_description": ParameterValue(robot1_description, value_type=str)},
             {"publish_robot_description": True},
         ],
         remappings=[
@@ -31,29 +42,12 @@ def generate_launch_description():
         ],
     )
 
-    '''
-    Agregar un GUI para mover las juntas, y agregar variable en el Launch
-    description
-
-    jsp1 = Node(
-        package="joint_state_publisher_gui",
-        executable="joint_state_publisher_gui",
-        name="joint_state_publisher_gui",
-        namespace="r1",
-        output="screen",
-        remappings=[
-            ("/joint_states", "joint_states"),
-        ],
-    )
-    '''
-
-    # Posición del robot 1 en el mundo (world -> r1_base_link)
     static_r1 = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
         name="static_r1_world",
         output="screen",
-        arguments=["-0.5", "0.5", "0", "-1.57", "0", "0", "world", "r1_base_link"],
+        arguments=["0.1", "0.5", "0.25", "-1.57", "0", "0", "world", "r1_base_link"],
     )
 
     # --- Robot 2 (prefijo r2_) ---
@@ -66,7 +60,8 @@ def generate_launch_description():
         namespace="r2",
         output="screen",
         parameters=[
-            {"robot_description": robot2_description},
+            # --- SE APLICA EL ParameterValue AQUÍ ---
+            {"robot_description": ParameterValue(robot2_description, value_type=str)},
             {"publish_robot_description": True},
         ],
         remappings=[
@@ -74,14 +69,43 @@ def generate_launch_description():
             ("/robot_description", "robot_description"),
         ],
     )
-    # Posición del robot 2 en el mundo (separado 1 metro en X)
+    
     static_r2 = Node(
         package="tf2_ros",
         executable="static_transform_publisher",
         name="static_r2_world",
         output="screen",
-        arguments=["0.5", "-0.5", "0", "1.57", "0", "0", "world", "r2_base_link"],
+        arguments=["0.1", "-0.5", "0.25", "1.57", "0", "0", "world", "r2_base_link"],
     )
+
+    # --- Banda Transportadora ---
+    banda_description = Command(["xacro ", banda_file])
+
+    rsp_banda = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        name="robot_state_publisher_banda",
+        namespace="banda",
+        output="screen",
+        parameters=[
+            # --- SE APLICA EL ParameterValue AQUÍ ---
+            {"robot_description": ParameterValue(banda_description, value_type=str)},
+            {"publish_robot_description": True},
+        ],
+        remappings=[
+            ("/joint_states", "joint_states"),
+            ("/robot_description", "robot_description"),
+        ],
+    )
+
+    #static_banda = Node(
+    #    package="tf2_ros",
+    #    executable="static_transform_publisher",
+    #    name="static_banda_world",
+    #    output="screen",
+        # NUEVOS VALORES: [X, Y, Z, Yaw, Pitch, Roll, pad_frame, child_frame]
+    #    arguments=["0.4", "-0.5", "0", "0", "0", "0", "world", "banda_base_link"],
+    #)
 
     # RViz2
     rviz = Node(

@@ -12,12 +12,15 @@ setup(
     ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
     ('share/' + package_name, ['package.xml']),
     ('share/' + package_name + '/urdf', ['urdf/ensamblaje.urdf']),
+    ('share/' + package_name + '/urdf', ['urdf/banda.urdf']),
     ('share/' + package_name + '/urdf', ['urdf/ensamblaje.urdf.xacro']),
     ('share/' + package_name + '/urdf/meshes', [
         'urdf/meshes/base_link.STL',
         'urdf/meshes/brazo_link.STL',
         'urdf/meshes/antebrazo_link.STL',
         'urdf/meshes/efector_link.STL',
+        'urdf/meshes/banda_base_link.STL',
+        'urdf/meshes/banda_link.STL'
     ]),
     ('share/' + package_name + '/launch', ['launch/visualizar_rviz.launch.py']),
     ('share/' + package_name + '/launch', ['launch/proyecto_rviz2.launch.py']),
@@ -57,6 +60,7 @@ setup(
         'p_orientacion2juntas  = proyecto.orientacion_juntas:main',
         'p_orientacion2juntasSCARA2  = proyecto.orientacion_juntas_Scara2:main',
         'p_mega  = proyecto.mega:main',
+        'cubo_publisher  = proyecto.CuboPublisher:main',
         
         ],       
     },

@@ -1,0 +1,176 @@
+[0.000000] (-) TimerEvent: {}
+[0.000567] (-) JobUnselected: {'identifier': 'avig_msg'}
+[0.000603] (mi_pkg_python) JobQueued: {'identifier': 'mi_pkg_python', 'dependencies': OrderedDict()}
+[0.000625] (mi_pkg_python) JobStarted: {'identifier': 'mi_pkg_python'}
+[0.108004] (-) TimerEvent: {}
+[0.217787] (-) TimerEvent: {}
+[0.319063] (-) TimerEvent: {}
+[0.419839] (-) TimerEvent: {}
+[0.521247] (-) TimerEvent: {}
+[0.544467] (mi_pkg_python) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/mi_pkg_python', 'build', '--build-base', '/home/edub/ros2_ws/build/mi_pkg_python/build', 'install', '--record', '/home/edub/ros2_ws/build/mi_pkg_python/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/edub/ros2_ws/src/mi_pkg_python', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US:', 'USER': 'edub', 'LC_TIME': 'es_CO.UTF-8', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/edub/ros2_ws/install/avig_msg/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/edub', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'es_CO.UTF-8', 'DBUS_STARTER_BUS_TYPE': 'session', 'SYSTEMD_EXEC_PID': '1610', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus,guid=fb993a6f5a23dad88282e8b06995c012', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/edub/ros2_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'edub', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'edub', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/edub/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ROS2robot:@/tmp/.ICE-unix/1610,unix/ROS2robot:/tmp/.ICE-unix/1610', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'es_CO.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/bb5c0bfe_7923_4211_9511_e1204b4c1e66', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'es_CO.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.1SGQK3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.133', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/edub/ros2_ws/install/mi_pkg_python:/home/edub/ros2_ws/install/avig_msg:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_CO.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_CO.UTF-8', 'LC_IDENTIFICATION': 'es_CO.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/edub/ros2_ws/build/mi_pkg_python', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'DBUS_STARTER_ADDRESS': 'unix:path=/run/user/1000/bus,guid=fb993a6f5a23dad88282e8b06995c012', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/edub/ros2_ws/build/mi_pkg_python/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:/home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages:/home/edub/ros2_ws/install/avig_msg/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_CO.UTF-8', 'LC_PAPER': 'es_CO.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/edub/ros2_ws/install/avig_msg'}, 'shell': False}
+[0.689938] (-) TimerEvent: {}
+[0.753940] (mi_pkg_python) StdoutLine: {'line': b'running egg_info\n'}
+[0.754970] (mi_pkg_python) StdoutLine: {'line': b'creating ../../build/mi_pkg_python/mi_pkg_python.egg-info\n'}
+[0.755362] (mi_pkg_python) StdoutLine: {'line': b'writing ../../build/mi_pkg_python/mi_pkg_python.egg-info/PKG-INFO\n'}
+[0.755503] (mi_pkg_python) StdoutLine: {'line': b'writing dependency_links to ../../build/mi_pkg_python/mi_pkg_python.egg-info/dependency_links.txt\n'}
+[0.755626] (mi_pkg_python) StdoutLine: {'line': b'writing entry points to ../../build/mi_pkg_python/mi_pkg_python.egg-info/entry_points.txt\n'}
+[0.755982] (mi_pkg_python) StdoutLine: {'line': b'writing requirements to ../../build/mi_pkg_python/mi_pkg_python.egg-info/requires.txt\n'}
+[0.756302] (mi_pkg_python) StdoutLine: {'line': b'writing top-level names to ../../build/mi_pkg_python/mi_pkg_python.egg-info/top_level.txt\n'}
+[0.756370] (mi_pkg_python) StdoutLine: {'line': b"writing manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'\n"}
+[0.758420] (mi_pkg_python) StdoutLine: {'line': b"reading manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'\n"}
+[0.759340] (mi_pkg_python) StdoutLine: {'line': b"writing manifest file '../../build/mi_pkg_python/mi_pkg_python.egg-info/SOURCES.txt'\n"}
+[0.759521] (mi_pkg_python) StdoutLine: {'line': b'running build\n'}
+[0.759726] (mi_pkg_python) StdoutLine: {'line': b'running build_py\n'}
+[0.759838] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/build/mi_pkg_python/build\n'}
+[0.759922] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/build/mi_pkg_python/build/lib\n'}
+[0.759999] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.760049] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/apriltag_2.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.760261] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/apriltag_0.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.760406] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/0_tf2.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.760466] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/0_urdf_sub.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.760698] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/urdf_mqtt.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.760812] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/suscriptor.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.760901] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/apriltag_1.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.761233] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/puente_mqtt.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.761410] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/__init__.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.761501] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/publicador.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.761554] (mi_pkg_python) StdoutLine: {'line': b'copying mi_pkg_python/0_urdf_pub.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python\n'}
+[0.761788] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/build/mi_pkg_python/build/lib/servicios\n'}
+[0.761977] (mi_pkg_python) StdoutLine: {'line': b'copying servicios/srv_servidor.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/servicios\n'}
+[0.762068] (mi_pkg_python) StdoutLine: {'line': b'copying servicios/srv_cliente.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/servicios\n'}
+[0.762118] (mi_pkg_python) StdoutLine: {'line': b'copying servicios/__init__.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/servicios\n'}
+[0.762172] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/build/mi_pkg_python/build/lib/acciones\n'}
+[0.762282] (mi_pkg_python) StdoutLine: {'line': b'copying acciones/action_client.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/acciones\n'}
+[0.762361] (mi_pkg_python) StdoutLine: {'line': b'copying acciones/__init__.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/acciones\n'}
+[0.762408] (mi_pkg_python) StdoutLine: {'line': b'copying acciones/action_server.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/acciones\n'}
+[0.762511] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.762643] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/prueba_publicador.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.762796] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/orientacion_juntas_Scara2.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.763042] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/orientacion_juntas.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.763196] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/puente_mqtt_ros2.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.763267] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/set.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.763490] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/fsm.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.763586] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/mega.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.763644] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/__init__.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.763945] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/vision_to_rviz.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.764126] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/driver_scara.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.764182] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/aprilCI.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.764239] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/medicion.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.764487] (mi_pkg_python) StdoutLine: {'line': b'copying proyecto/medicion 2.py -> /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto\n'}
+[0.765022] (mi_pkg_python) StdoutLine: {'line': b'running install\n'}
+[0.765433] (mi_pkg_python) StdoutLine: {'line': b'running install_lib\n'}
+[0.767001] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.767353] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/apriltag_2.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.767511] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/apriltag_0.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.767565] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/0_tf2.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.767781] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/0_urdf_sub.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.767954] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/urdf_mqtt.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.768020] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/suscriptor.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.768076] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/apriltag_1.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.768128] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/puente_mqtt.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.768214] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/__init__.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.768434] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/publicador.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.768547] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/mi_pkg_python/0_urdf_pub.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python\n'}
+[0.768594] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/servicios\n'}
+[0.768638] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/servicios/srv_servidor.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/servicios\n'}
+[0.768767] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/servicios/srv_cliente.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/servicios\n'}
+[0.768823] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/servicios/__init__.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/servicios\n'}
+[0.769389] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones\n'}
+[0.769505] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/acciones/action_client.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones\n'}
+[0.769552] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/acciones/__init__.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones\n'}
+[0.769605] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/acciones/action_server.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones\n'}
+[0.769647] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.769788] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/prueba_publicador.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.769844] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/orientacion_juntas_Scara2.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.769897] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/orientacion_juntas.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.769951] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/puente_mqtt_ros2.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770004] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/set.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770262] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/fsm.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770345] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/mega.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770394] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/__init__.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770436] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/vision_to_rviz.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770476] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/driver_scara.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770556] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/aprilCI.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770645] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/medicion.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770754] (mi_pkg_python) StdoutLine: {'line': b'copying /home/edub/ros2_ws/build/mi_pkg_python/build/lib/proyecto/medicion 2.py -> /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto\n'}
+[0.770911] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/apriltag_2.py to apriltag_2.cpython-310.pyc\n'}
+[0.771535] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/apriltag_0.py to apriltag_0.cpython-310.pyc\n'}
+[0.772063] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/0_tf2.py to 0_tf2.cpython-310.pyc\n'}
+[0.772518] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/0_urdf_sub.py to 0_urdf_sub.cpython-310.pyc\n'}
+[0.772978] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/urdf_mqtt.py to urdf_mqtt.cpython-310.pyc\n'}
+[0.773922] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/suscriptor.py to suscriptor.cpython-310.pyc\n'}
+[0.774250] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/apriltag_1.py to apriltag_1.cpython-310.pyc\n'}
+[0.774920] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/puente_mqtt.py to puente_mqtt.cpython-310.pyc\n'}
+[0.775610] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/__init__.py to __init__.cpython-310.pyc\n'}
+[0.775801] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/publicador.py to publicador.cpython-310.pyc\n'}
+[0.776302] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python/0_urdf_pub.py to 0_urdf_pub.cpython-310.pyc\n'}
+[0.776792] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/servicios/srv_servidor.py to srv_servidor.cpython-310.pyc\n'}
+[0.777425] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/servicios/srv_cliente.py to srv_cliente.cpython-310.pyc\n'}
+[0.778077] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/servicios/__init__.py to __init__.cpython-310.pyc\n'}
+[0.778400] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones/action_client.py to action_client.cpython-310.pyc\n'}
+[0.779144] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones/__init__.py to __init__.cpython-310.pyc\n'}
+[0.779362] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/acciones/action_server.py to action_server.cpython-310.pyc\n'}
+[0.780226] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/prueba_publicador.py to prueba_publicador.cpython-310.pyc\n'}
+[0.780684] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/orientacion_juntas_Scara2.py to orientacion_juntas_Scara2.cpython-310.pyc\n'}
+[0.783365] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/orientacion_juntas.py to orientacion_juntas.cpython-310.pyc\n'}
+[0.785305] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/puente_mqtt_ros2.py to puente_mqtt_ros2.cpython-310.pyc\n'}
+[0.786516] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/set.py to set.cpython-310.pyc\n'}
+[0.787036] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/fsm.py to fsm.cpython-310.pyc\n'}
+[0.789546] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/mega.py to mega.cpython-310.pyc\n'}
+[0.790372] (-) TimerEvent: {}
+[0.791772] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/__init__.py to __init__.cpython-310.pyc\n'}
+[0.791907] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/vision_to_rviz.py to vision_to_rviz.cpython-310.pyc\n'}
+[0.793877] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/driver_scara.py to driver_scara.cpython-310.pyc\n'}
+[0.794007] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/aprilCI.py to aprilCI.cpython-310.pyc\n'}
+[0.794052] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/medicion.py to medicion.cpython-310.pyc\n'}
+[0.795059] (mi_pkg_python) StdoutLine: {'line': b'byte-compiling /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/proyecto/medicion 2.py to medicion 2.cpython-310.pyc\n'}
+[0.796092] (mi_pkg_python) StdoutLine: {'line': b'running install_data\n'}
+[0.796195] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/share/ament_index\n'}
+[0.796249] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/share/ament_index/resource_index\n'}
+[0.796293] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/share/ament_index/resource_index/packages\n'}
+[0.796337] (mi_pkg_python) StdoutLine: {'line': b'copying resource/mi_pkg_python -> /home/edub/ros2_ws/install/mi_pkg_python/share/ament_index/resource_index/packages\n'}
+[0.796383] (mi_pkg_python) StdoutLine: {'line': b'copying package.xml -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python\n'}
+[0.796427] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf\n'}
+[0.796469] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/ensamblaje.urdf -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf\n'}
+[0.796512] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/banda.urdf -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf\n'}
+[0.797096] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/ensamblaje.urdf.xacro -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf\n'}
+[0.797231] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/meshes\n'}
+[0.797340] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/meshes/base_link.STL -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/meshes\n'}
+[0.834669] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/meshes/brazo_link.STL -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/meshes\n'}
+[0.846476] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/meshes/antebrazo_link.STL -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/meshes\n'}
+[0.854477] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/meshes/efector_link.STL -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/meshes\n'}
+[0.857759] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/meshes/banda_base_link.STL -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/meshes\n'}
+[0.857883] (mi_pkg_python) StdoutLine: {'line': b'copying urdf/meshes/banda_link.STL -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/urdf/meshes\n'}
+[0.857932] (mi_pkg_python) StdoutLine: {'line': b'creating /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/launch\n'}
+[0.857982] (mi_pkg_python) StdoutLine: {'line': b'copying launch/visualizar_rviz.launch.py -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/launch\n'}
+[0.858023] (mi_pkg_python) StdoutLine: {'line': b'copying launch/proyecto_rviz2.launch.py -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/launch\n'}
+[0.858065] (mi_pkg_python) StdoutLine: {'line': b'copying launch/todo_scara.launch.py -> /home/edub/ros2_ws/install/mi_pkg_python/share/mi_pkg_python/launch\n'}
+[0.858106] (mi_pkg_python) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.862138] (mi_pkg_python) StdoutLine: {'line': b'Copying ../../build/mi_pkg_python/mi_pkg_python.egg-info to /home/edub/ros2_ws/install/mi_pkg_python/lib/python3.10/site-packages/mi_pkg_python-0.0.0-py3.10.egg-info\n'}
+[0.862257] (mi_pkg_python) StdoutLine: {'line': b'running install_scripts\n'}
+[0.883814] (mi_pkg_python) StdoutLine: {'line': b'Installing 0_tf2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884089] (mi_pkg_python) StdoutLine: {'line': b'Installing 0_urdf_pub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884166] (mi_pkg_python) StdoutLine: {'line': b'Installing 0_urdf_sub script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884220] (mi_pkg_python) StdoutLine: {'line': b'Installing action_cliente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884295] (mi_pkg_python) StdoutLine: {'line': b'Installing action_servidor script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884442] (mi_pkg_python) StdoutLine: {'line': b'Installing apriltag_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884513] (mi_pkg_python) StdoutLine: {'line': b'Installing apriltag_2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884561] (mi_pkg_python) StdoutLine: {'line': b'Installing cliente_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884605] (mi_pkg_python) StdoutLine: {'line': b'Installing p_fsm script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884649] (mi_pkg_python) StdoutLine: {'line': b'Installing p_mega script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.884731] (mi_pkg_python) StdoutLine: {'line': b'Installing p_orientacion2juntas script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.887499] (mi_pkg_python) StdoutLine: {'line': b'Installing p_orientacion2juntasSCARA2 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.887692] (mi_pkg_python) StdoutLine: {'line': b'Installing p_prueba script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.887753] (mi_pkg_python) StdoutLine: {'line': b'Installing p_puente script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.887858] (mi_pkg_python) StdoutLine: {'line': b'Installing p_set script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.887916] (mi_pkg_python) StdoutLine: {'line': b'Installing p_vision2riz script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.891476] (-) TimerEvent: {}
+[0.892191] (mi_pkg_python) StdoutLine: {'line': b'Installing publicador1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.892418] (mi_pkg_python) StdoutLine: {'line': b'Installing puente_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.892492] (mi_pkg_python) StdoutLine: {'line': b'Installing servidor_1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.892541] (mi_pkg_python) StdoutLine: {'line': b'Installing suscriptor1 script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.892627] (mi_pkg_python) StdoutLine: {'line': b'Installing urdf_mqtt script to /home/edub/ros2_ws/install/mi_pkg_python/lib/mi_pkg_python\n'}
+[0.894647] (mi_pkg_python) StdoutLine: {'line': b"writing list of installed files to '/home/edub/ros2_ws/build/mi_pkg_python/install.log'\n"}
+[0.917279] (mi_pkg_python) CommandEnded: {'returncode': 0}
+[0.926112] (mi_pkg_python) JobEnded: {'identifier': 'mi_pkg_python', 'rc': 0}
+[0.926794] (-) EventReactorShutdown: {}
