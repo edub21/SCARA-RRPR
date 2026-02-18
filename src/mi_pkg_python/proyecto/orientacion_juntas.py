@@ -20,14 +20,14 @@ class AprilTagToROS2(Node):
         self.pub_trigger = self.create_publisher(Int32, '/sistema/trigger', 10)
 
         self.default_tag_1_corners = np.array([
-            [935.1003,436.5598],
-            [928.6178,496.6125],
-            [990.7722,497.4378],
-            [998.4216,437.2365]
+            [935.36657715, 436.75332642],
+            [928.68560791, 496.82464600],
+            [990.94152832, 497.78353882],
+            [998.36145020, 437.27966309]
         ], dtype=np.float32)
 
         self.distancia_tolerancia = 2.0 
-        self.zona_r1 = {'x': 8.0, 'y': 58.3} 
+        self.zona_r1 = {'x': 8.0, 'y': 59.0} 
         self.zona_r2 = {'x': 0.0, 'y': 51.0}
 
         try:
@@ -158,14 +158,15 @@ class AprilTagToROS2(Node):
                 T_11_1 = self.get_relative_transform(tag_dict[1], tag_dict[11])
                 js1.name.append('r1_brazo_joint')
                 js1.position.append(float(-self.get_yaw_diff(T_11_1)))
+                #print(f"1 = {self.get_yaw_diff(T_11_1)*180/3.1415} deg")
                 if 12 in tag_dict:
                     T_12_1 = self.get_relative_transform(tag_dict[11], tag_dict[12])
                     js1.name.extend(['r1_antebrazo_joint', 'r1_efector_joint'])
                     js1.position.extend([float(-self.get_yaw_diff(T_12_1)), float(T_12_1[2, 3] + 0.1)])
                     x = 20 * np.cos(self.get_yaw_diff(T_11_1)) + 20 * np.cos(self.get_yaw_diff(T_11_1 + T_12_1))
                     y = 20 * np.sin(self.get_yaw_diff(T_11_1)) + 20 * np.sin(self.get_yaw_diff(T_11_1 + T_12_1))
-                    #print(f"x = {x} cm, y = {y} cm")
-                    print(f"1 = {self.get_yaw_diff(T_11_1)*180/3.1415} deg, 2 = {self.get_yaw_diff(T_12_1)*180/3.1415} cm")
+                    print(f"x = {x} cm, y = {y} cm")
+                    #print(f" 2 = {self.get_yaw_diff(T_12_1)*180/3.1415} cm")
 
             if js1.name: self.pub_r1.publish(js1)
 
@@ -190,10 +191,12 @@ class AprilTagToROS2(Node):
 def main():
     rclpy.init()
     node = AprilTagToROS2()
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture("/dev/video1", cv2.CAP_V4L2)
+    cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     
+
     try:
         while rclpy.ok():
             ret, frame = cap.read()
