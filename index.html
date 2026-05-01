@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARA 3D Visualizer - Interactive</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #1a1a1a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        #container { width: 100vw; height: 100vh; }
+        #gui { position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.8); color: white; padding: 15px; border-radius: 8px; border: 1px solid #444; width: 250px; }
+        h3 { margin-top: 0; font-size: 16px; color: #00ccff; }
+        .slider-group { margin-bottom: 15px; }
+        label { display: block; font-size: 12px; margin-bottom: 5px; }
+        input[type=range] { width: 100%; cursor: pointer; }
+        .header { position: absolute; top: 20px; left: 20px; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>SCARA Robot 🦾</h1>
+        <p>Visualizador Interactivo 3D</p>
+    </div>
+
+    <div id="gui">
+        <h3>Control de Articulaciones</h3>
+        <div id="sliders-container">
+            <!-- Los sliders se generarán automáticamente -->
+        </div>
+    </div>
+
+    <div id="container"></div>
+
+    <!-- Librerías desde CDN -->
+    <script src="https://unpkg.com/three@0.150.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.150.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/urdf-loader@0.12.1/umd/URDFLoader.js"></script>
+
+    <script>
+        let scene, camera, renderer, robot, controls;
+
+        init();
+        animate();
+
+        function init() {
+            // 1. Escena y Cámara
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a1a);
+
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(2, 2, 2);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('container').appendChild(renderer.domElement);
+
+            // 2. Luces
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            directionalLight.position.set(5, 5, 5);
+            scene.add(directionalLight);
+
+            const gridHelper = new THREE.GridHelper(10, 10, 0x444444, 0x222222);
+            scene.add(gridHelper);
+
+            // 3. Controles
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            // 4. Cargador URDF
+            const loader = new URDFLoader();
+            
+            // CONFIGURACIÓN DE RUTAS: 
+            // Este index.html asume que está en la raíz. 
+            // Buscamos el URDF en la ruta relativa según tu estructura:
+            const urdfPath = './src/mi_pkg_python/urdf/ensamblaje.urdf';
+            
+            // Resolvemos los paquetes "package://mi_pkg_python/" a la ruta real en el repo
+            loader.packages = {
+                'mi_pkg_python': './src/mi_pkg_python'
+            };
+
+            loader.load(urdfPath, result => {
+                robot = result;
+                scene.add(robot);
+                
+                // Centrar robot
+                robot.rotation.x = -Math.PI / 2; // Ajuste por si el URDF viene en eje Z up
+                
+                createSliders(robot.joints);
+            });
+
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function createSliders(joints) {
+            const container = document.getElementById('sliders-container');
+            for (const name in joints) {
+                const joint = joints[name];
+                
+                // Solo crear sliders para articulaciones que no sean fijas
+                if (joint.jointType !== 'fixed') {
+                    const group = document.createElement('div');
+                    group.className = 'slider-group';
+                    
+                    const label = document.createElement('label');
+                    label.innerText = `${name} (${joint.limit.lower} to ${joint.limit.upper})`;
+                    
+                    const slider = document.createElement('input');
+                    slider.type = 'range';
+                    slider.step = '0.01';
+                    slider.min = joint.limit.lower;
+                    slider.max = joint.limit.upper;
+                    slider.value = 0;
+                    
+                    slider.oninput = () => {
+                        robot.setJointValue(name, slider.value);
+                    };
+                    
+                    group.appendChild(label);
+                    group.appendChild(slider);
+                    container.appendChild(group);
+                }
+            }
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+</html>
